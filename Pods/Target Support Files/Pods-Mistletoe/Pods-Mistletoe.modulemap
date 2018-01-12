@@ -1,0 +1,6 @@
+framework module Pods_Mistletoe {
+  umbrella header "Pods-Mistletoe-umbrella.h"
+
+  export *
+  module * { export * }
+}

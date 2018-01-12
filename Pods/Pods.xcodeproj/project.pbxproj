@@ -1,0 +1,676 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C7F3A566FA19804062E07202AEA20CD /* Pods-MistletoeUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE1A500891DE4902920478E2AAF7BE6 /* Pods-MistletoeUITests-dummy.m */; };
+		4C7C0D4910B9A0EA8C257F9BC3D355C9 /* Pods-MistletoeTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FB27DADEA126C27FC12DFA894AFE70 /* Pods-MistletoeTests-dummy.m */; };
+		5C9A36E3C3C2DDACB736E826D80A545E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		83FB9FBC4BFE4AF70E9E7754D129CCAA /* Pods-Mistletoe-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B17CC41D4CEDB39BFE96F413DB5C3769 /* Pods-Mistletoe-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BCFC6E82FEFE1DC10C331ADB29C79A0 /* Pods-Mistletoe-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F82361BC710C6921EC27396C34E73716 /* Pods-Mistletoe-dummy.m */; };
+		D0DECD9C3D709BC689E8EDC43D44FED3 /* Pods-MistletoeTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5575DB33DDC1802BB10126D638C2AF9D /* Pods-MistletoeTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DAFE91D7E1EC8EC2550C97FE431FDEBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		E1F2CEFEAC8F48CBA08C0F8DABA0F6D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		E938DA4771C73A29F8C835EAFDC25976 /* Pods-MistletoeUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E046542F4A3A8EDA445CFEFE6C587C7 /* Pods-MistletoeUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		03B0A8B13766AF9A0F30054269167391 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		087948BBB11DE1D7655CD776EF05BA07 /* Pods_MistletoeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MistletoeTests.framework; path = "Pods-MistletoeTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14BB5FE28E9F3CFAFD02BEA622F45685 /* Pods-Mistletoe-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Mistletoe-acknowledgements.markdown"; sourceTree = "<group>"; };
+		204622940DA072D9B9E6AC7CCEE07EFF /* Pods_Mistletoe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Mistletoe.framework; path = "Pods-Mistletoe.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		329903A9E595F26D10370019BAB9C15C /* Pods-MistletoeTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MistletoeTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		38636CFE49D4C20E4F04444F4AE9093F /* Pods-MistletoeTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MistletoeTests-frameworks.sh"; sourceTree = "<group>"; };
+		3C116379959815478EC4387E3FBB2D68 /* Pods-MistletoeTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MistletoeTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3E10EB0BFC90165B224B01C86FD823F7 /* Pods_MistletoeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MistletoeUITests.framework; path = "Pods-MistletoeUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E2D02224C0CF269E6F140EBB980F2FC /* Pods-Mistletoe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Mistletoe.debug.xcconfig"; sourceTree = "<group>"; };
+		3FE1A500891DE4902920478E2AAF7BE6 /* Pods-MistletoeUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MistletoeUITests-dummy.m"; sourceTree = "<group>"; };
+		53DE998F2666066A2B3EB14D84AB3F69 /* Pods-MistletoeUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MistletoeUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5575DB33DDC1802BB10126D638C2AF9D /* Pods-MistletoeTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MistletoeTests-umbrella.h"; sourceTree = "<group>"; };
+		5F91212F6860657E169D79108B69660C /* Pods-MistletoeUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MistletoeUITests-frameworks.sh"; sourceTree = "<group>"; };
+		63CAFC9F09E42CDEB74F7F674B418D1D /* Pods-MistletoeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MistletoeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		65FB27DADEA126C27FC12DFA894AFE70 /* Pods-MistletoeTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MistletoeTests-dummy.m"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		692DD38AAC70BADDA6B930FA522613CA /* Pods-Mistletoe-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Mistletoe-resources.sh"; sourceTree = "<group>"; };
+		6CE30FBEBB7BCC63DE936F8127784D90 /* Pods-MistletoeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MistletoeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6E046542F4A3A8EDA445CFEFE6C587C7 /* Pods-MistletoeUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MistletoeUITests-umbrella.h"; sourceTree = "<group>"; };
+		7113C26C189A012907BFB1833F9AC2AC /* Pods-MistletoeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MistletoeTests.release.xcconfig"; sourceTree = "<group>"; };
+		71EFD6ACE6BFFD34B502E5EA3A476250 /* Pods-Mistletoe.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Mistletoe.modulemap"; sourceTree = "<group>"; };
+		74055927464DB305C601A9360F2290A9 /* Pods-Mistletoe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Mistletoe.release.xcconfig"; sourceTree = "<group>"; };
+		7604761768B64331263B9775DAEC033B /* Pods-Mistletoe-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Mistletoe-acknowledgements.plist"; sourceTree = "<group>"; };
+		80D865869C861575AFD83CCEAB5D7DA6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F4A6E1A5643D85C0E98170293236EDD /* Pods-MistletoeUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MistletoeUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		AAC4F73C54D6475240C4DB587B55EFAE /* Pods-MistletoeTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MistletoeTests.modulemap"; sourceTree = "<group>"; };
+		AE8104A92B6E20E779A27F344300E8F5 /* Pods-MistletoeUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MistletoeUITests.modulemap"; sourceTree = "<group>"; };
+		B17CC41D4CEDB39BFE96F413DB5C3769 /* Pods-Mistletoe-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Mistletoe-umbrella.h"; sourceTree = "<group>"; };
+		BDAFBC05CD4E6D3A2822518A90B69F81 /* Pods-MistletoeUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MistletoeUITests-resources.sh"; sourceTree = "<group>"; };
+		D233406E683447B4E1A0ACF036E42347 /* Pods-MistletoeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MistletoeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D98A12BF9A439AD87C85DBD91260829B /* Pods-MistletoeTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MistletoeTests-resources.sh"; sourceTree = "<group>"; };
+		DB443C2A7749E3ADD0EDE5DADB253477 /* Pods-Mistletoe-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Mistletoe-frameworks.sh"; sourceTree = "<group>"; };
+		E11338322D20521D9B783AE9E91B66DF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F82361BC710C6921EC27396C34E73716 /* Pods-Mistletoe-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Mistletoe-dummy.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		21B84D786615815D1D47797C328A6D58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1F2CEFEAC8F48CBA08C0F8DABA0F6D1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC44EED040147FA932651788930F0CF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAFE91D7E1EC8EC2550C97FE431FDEBC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAEFD5E72D7A6A1EFADF19CBD58AAC0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C9A36E3C3C2DDACB736E826D80A545E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		49FC7716B7E8035F9D1F810BE61A0B57 /* Pods-MistletoeTests */ = {
+			isa = PBXGroup;
+			children = (
+				E11338322D20521D9B783AE9E91B66DF /* Info.plist */,
+				AAC4F73C54D6475240C4DB587B55EFAE /* Pods-MistletoeTests.modulemap */,
+				3C116379959815478EC4387E3FBB2D68 /* Pods-MistletoeTests-acknowledgements.markdown */,
+				329903A9E595F26D10370019BAB9C15C /* Pods-MistletoeTests-acknowledgements.plist */,
+				65FB27DADEA126C27FC12DFA894AFE70 /* Pods-MistletoeTests-dummy.m */,
+				38636CFE49D4C20E4F04444F4AE9093F /* Pods-MistletoeTests-frameworks.sh */,
+				D98A12BF9A439AD87C85DBD91260829B /* Pods-MistletoeTests-resources.sh */,
+				5575DB33DDC1802BB10126D638C2AF9D /* Pods-MistletoeTests-umbrella.h */,
+				6CE30FBEBB7BCC63DE936F8127784D90 /* Pods-MistletoeTests.debug.xcconfig */,
+				7113C26C189A012907BFB1833F9AC2AC /* Pods-MistletoeTests.release.xcconfig */,
+			);
+			name = "Pods-MistletoeTests";
+			path = "Target Support Files/Pods-MistletoeTests";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				B6454A4F01B0A69A5D86894AEA9682A0 /* Products */,
+				ACA96F44DB715A26F270331A11E713DC /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		82C1664CBD576B0F6A8E14C71B695D97 /* Pods-MistletoeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				80D865869C861575AFD83CCEAB5D7DA6 /* Info.plist */,
+				AE8104A92B6E20E779A27F344300E8F5 /* Pods-MistletoeUITests.modulemap */,
+				53DE998F2666066A2B3EB14D84AB3F69 /* Pods-MistletoeUITests-acknowledgements.markdown */,
+				9F4A6E1A5643D85C0E98170293236EDD /* Pods-MistletoeUITests-acknowledgements.plist */,
+				3FE1A500891DE4902920478E2AAF7BE6 /* Pods-MistletoeUITests-dummy.m */,
+				5F91212F6860657E169D79108B69660C /* Pods-MistletoeUITests-frameworks.sh */,
+				BDAFBC05CD4E6D3A2822518A90B69F81 /* Pods-MistletoeUITests-resources.sh */,
+				6E046542F4A3A8EDA445CFEFE6C587C7 /* Pods-MistletoeUITests-umbrella.h */,
+				D233406E683447B4E1A0ACF036E42347 /* Pods-MistletoeUITests.debug.xcconfig */,
+				63CAFC9F09E42CDEB74F7F674B418D1D /* Pods-MistletoeUITests.release.xcconfig */,
+			);
+			name = "Pods-MistletoeUITests";
+			path = "Target Support Files/Pods-MistletoeUITests";
+			sourceTree = "<group>";
+		};
+		A6A4AD24DC7DF865A3806A7913FCEF81 /* Pods-Mistletoe */ = {
+			isa = PBXGroup;
+			children = (
+				03B0A8B13766AF9A0F30054269167391 /* Info.plist */,
+				71EFD6ACE6BFFD34B502E5EA3A476250 /* Pods-Mistletoe.modulemap */,
+				14BB5FE28E9F3CFAFD02BEA622F45685 /* Pods-Mistletoe-acknowledgements.markdown */,
+				7604761768B64331263B9775DAEC033B /* Pods-Mistletoe-acknowledgements.plist */,
+				F82361BC710C6921EC27396C34E73716 /* Pods-Mistletoe-dummy.m */,
+				DB443C2A7749E3ADD0EDE5DADB253477 /* Pods-Mistletoe-frameworks.sh */,
+				692DD38AAC70BADDA6B930FA522613CA /* Pods-Mistletoe-resources.sh */,
+				B17CC41D4CEDB39BFE96F413DB5C3769 /* Pods-Mistletoe-umbrella.h */,
+				3E2D02224C0CF269E6F140EBB980F2FC /* Pods-Mistletoe.debug.xcconfig */,
+				74055927464DB305C601A9360F2290A9 /* Pods-Mistletoe.release.xcconfig */,
+			);
+			name = "Pods-Mistletoe";
+			path = "Target Support Files/Pods-Mistletoe";
+			sourceTree = "<group>";
+		};
+		ACA96F44DB715A26F270331A11E713DC /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A6A4AD24DC7DF865A3806A7913FCEF81 /* Pods-Mistletoe */,
+				49FC7716B7E8035F9D1F810BE61A0B57 /* Pods-MistletoeTests */,
+				82C1664CBD576B0F6A8E14C71B695D97 /* Pods-MistletoeUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		B6454A4F01B0A69A5D86894AEA9682A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				204622940DA072D9B9E6AC7CCEE07EFF /* Pods_Mistletoe.framework */,
+				087948BBB11DE1D7655CD776EF05BA07 /* Pods_MistletoeTests.framework */,
+				3E10EB0BFC90165B224B01C86FD823F7 /* Pods_MistletoeUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5D3B028B8608EDC840C6E2C9510161CA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83FB9FBC4BFE4AF70E9E7754D129CCAA /* Pods-Mistletoe-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61738A6B68E42F4813B026852B374869 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0DECD9C3D709BC689E8EDC43D44FED3 /* Pods-MistletoeTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		764BF22EA58D7FB9CDD006329D059511 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E938DA4771C73A29F8C835EAFDC25976 /* Pods-MistletoeUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		313BED1E673C2FEC295E6494399C4E22 /* Pods-Mistletoe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA2DA9CA863C85C087673FE8E0FEB0AD /* Build configuration list for PBXNativeTarget "Pods-Mistletoe" */;
+			buildPhases = (
+				85035E6FF0F348328EAEE6C27ED4377D /* Sources */,
+				EAEFD5E72D7A6A1EFADF19CBD58AAC0F /* Frameworks */,
+				5D3B028B8608EDC840C6E2C9510161CA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Mistletoe";
+			productName = "Pods-Mistletoe";
+			productReference = 204622940DA072D9B9E6AC7CCEE07EFF /* Pods_Mistletoe.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5243955C3C9650679F81582507DEF634 /* Pods-MistletoeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F292B946DD7E09F2B8677DF44CC7C5AB /* Build configuration list for PBXNativeTarget "Pods-MistletoeUITests" */;
+			buildPhases = (
+				CD97DB3CC993FDBACC72E1B3F364140D /* Sources */,
+				21B84D786615815D1D47797C328A6D58 /* Frameworks */,
+				764BF22EA58D7FB9CDD006329D059511 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MistletoeUITests";
+			productName = "Pods-MistletoeUITests";
+			productReference = 3E10EB0BFC90165B224B01C86FD823F7 /* Pods_MistletoeUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9D78BE7A6FCC08BB94BDD2C1B87E926F /* Pods-MistletoeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C413CCE938AB8EDF18BB0325354E57EA /* Build configuration list for PBXNativeTarget "Pods-MistletoeTests" */;
+			buildPhases = (
+				C88D208CD77B3C84452E658D3D0AC5CC /* Sources */,
+				CC44EED040147FA932651788930F0CF9 /* Frameworks */,
+				61738A6B68E42F4813B026852B374869 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MistletoeTests";
+			productName = "Pods-MistletoeTests";
+			productReference = 087948BBB11DE1D7655CD776EF05BA07 /* Pods_MistletoeTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = B6454A4F01B0A69A5D86894AEA9682A0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				313BED1E673C2FEC295E6494399C4E22 /* Pods-Mistletoe */,
+				9D78BE7A6FCC08BB94BDD2C1B87E926F /* Pods-MistletoeTests */,
+				5243955C3C9650679F81582507DEF634 /* Pods-MistletoeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		85035E6FF0F348328EAEE6C27ED4377D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BCFC6E82FEFE1DC10C331ADB29C79A0 /* Pods-Mistletoe-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C88D208CD77B3C84452E658D3D0AC5CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C7C0D4910B9A0EA8C257F9BC3D355C9 /* Pods-MistletoeTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD97DB3CC993FDBACC72E1B3F364140D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C7F3A566FA19804062E07202AEA20CD /* Pods-MistletoeUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		276AE482EB6DA3214C428153D0479582 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D233406E683447B4E1A0ACF036E42347 /* Pods-MistletoeUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MistletoeUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MistletoeUITests/Pods-MistletoeUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MistletoeUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		39C5BC78A31CDE101068C530CAC7FA0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		668A4D3D4CE3D8FB767DAA2E3DB054A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63CAFC9F09E42CDEB74F7F674B418D1D /* Pods-MistletoeUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MistletoeUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MistletoeUITests/Pods-MistletoeUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MistletoeUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		72BDA7005F49BF88AFC87C28378311EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E2D02224C0CF269E6F140EBB980F2FC /* Pods-Mistletoe.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Mistletoe/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Mistletoe/Pods-Mistletoe.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Mistletoe;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		72C532DFEA0E2C883A69EDD80D27D768 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7113C26C189A012907BFB1833F9AC2AC /* Pods-MistletoeTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MistletoeTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MistletoeTests/Pods-MistletoeTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MistletoeTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		89C8BB24E37B25BAEEB8FBA01EE05DAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		ED34AB9D91D326D6F3C429777A1A7E1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CE30FBEBB7BCC63DE936F8127784D90 /* Pods-MistletoeTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MistletoeTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MistletoeTests/Pods-MistletoeTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MistletoeTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FCF8B71FB628E1A5EE3AFEC47D5B6F99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74055927464DB305C601A9360F2290A9 /* Pods-Mistletoe.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Mistletoe/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Mistletoe/Pods-Mistletoe.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Mistletoe;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39C5BC78A31CDE101068C530CAC7FA0F /* Debug */,
+				89C8BB24E37B25BAEEB8FBA01EE05DAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C413CCE938AB8EDF18BB0325354E57EA /* Build configuration list for PBXNativeTarget "Pods-MistletoeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED34AB9D91D326D6F3C429777A1A7E1A /* Debug */,
+				72C532DFEA0E2C883A69EDD80D27D768 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F292B946DD7E09F2B8677DF44CC7C5AB /* Build configuration list for PBXNativeTarget "Pods-MistletoeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				276AE482EB6DA3214C428153D0479582 /* Debug */,
+				668A4D3D4CE3D8FB767DAA2E3DB054A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA2DA9CA863C85C087673FE8E0FEB0AD /* Build configuration list for PBXNativeTarget "Pods-Mistletoe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72BDA7005F49BF88AFC87C28378311EF /* Debug */,
+				FCF8B71FB628E1A5EE3AFEC47D5B6F99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
