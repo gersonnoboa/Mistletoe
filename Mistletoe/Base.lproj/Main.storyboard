@@ -48,10 +48,43 @@
                         <viewLayoutGuide key="safeArea" id="2cu-ub-rc2"/>
                     </view>
                     <navigationItem key="navigationItem" id="YpF-Fp-UV5"/>
+                    <connections>
+                        <segue destination="9LX-nF-ndp" kind="show" identifier="AccountsToInstagramUserSearch" id="8Si-rA-dnQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vo9-ZJ-X4G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-714.39999999999998" y="-10.344827586206897"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="exi-Sn-Jyf">
+            <objects>
+                <viewController id="qEX-1W-DO6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ii2-uj-5GU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Qyo-qR-Xrb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VGl-X6-9A6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="191" y="-419"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="DwU-SY-Fwd">
+            <objects>
+                <viewController id="9LX-nF-ndp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rX0-Bs-APR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="3We-Mt-DXj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3vp-ur-McG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="194" y="234"/>
         </scene>
     </scenes>
 </document>

@@ -8,12 +8,14 @@
 
 import UIKit
 
-class AccountsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AccountsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TintedNavigationBar {
 
     var accounts: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Account";
         
         accounts = UserDefaultsHelper.getAccounts()
     }
@@ -65,7 +67,7 @@ class AccountsViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if (indexPath.section == 1){
-            
+            self.performSegue(withIdentifier: SegueIdentifiers.AccountsToInstagramUserSearch.rawValue, sender: nil);
         }
         else {
             
