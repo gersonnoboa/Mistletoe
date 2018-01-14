@@ -8,18 +8,20 @@
 
 import UIKit
 
-typealias HTTPResult = (NSData?, Error?) -> Void
+typealias HTTPResult = (Data?, Error?) -> Void
 
 class HTTPClient {
     private let session: URLSessionProtocol
     
-    init(session: URLSessionProtocol = URLSession()) {
+    init(session: URLSessionProtocol = URLSession.shared) {
         self.session = session;
     }
     
-    func get(url: URL, completion: HTTPResult) {
-        let dataTask = session.dataTaskWithURL(url: url) { (data, response, error) in
-            completion(data, error)
+    func get(url: String, completion: @escaping HTTPResult) {
+        let u = URL(string: url)!
+        
+        let dataTask = session.dataTaskWithURL(with: u) { (data, response, error) in
+            completion(data as Data?, error)
         }
         dataTask.resume()
         

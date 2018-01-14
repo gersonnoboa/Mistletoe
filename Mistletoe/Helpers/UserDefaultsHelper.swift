@@ -39,7 +39,7 @@ class UserDefaultsHelper: NSObject {
         return accessToken
     }
     
-    static func saveAccessToken(token: String) {
+    static func saveAccessToken(token: String?) {
         let defaults = UserDefaults.standard
         defaults.set(token, forKey: accessTokenIdentifier)
     }

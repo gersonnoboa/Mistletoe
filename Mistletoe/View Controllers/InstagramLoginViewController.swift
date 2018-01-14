@@ -19,6 +19,7 @@ class InstagramLoginViewController: UIViewController, WKNavigationDelegate {
 
         self.webView.navigationDelegate = self
         loadWebView()
+        definesPresentationContext = true
         // Do any additional setup after loading the view.
     }
 
@@ -56,19 +57,31 @@ class InstagramLoginViewController: UIViewController, WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
-        guard let url = navigationAction.request.url else { return }
-        NSLog("url \(url)")
-        
-        let stringURL = url.absoluteString
-        if stringURL.hasPrefix(InstagramAPI.redirectURL){
-            let range: Range<String.Index> = stringURL.range(of: "#access_token=")!
-            let authToken = stringURL[range.upperBound...]
-            NSLog(String(authToken))
-            
-            UserDefaultsHelper.saveAccessToken(token: String(authToken))
-            UIHelper.showSuccessAlert(vc: self)
+        if let url = navigationAction.request.url {
+            let stringURL = url.absoluteString
+            if stringURL.hasPrefix(InstagramAPI.redirectURL){
+                UIHelper.Loading.hide()
+                webView.stopLoading()
+                webView.navigationDelegate = nil
+                decisionHandler(.cancel)
+                let range: Range<String.Index> = stringURL.range(of: "#access_token=")!
+                let authToken = stringURL[range.upperBound...]
+                
+                UserDefaultsHelper.saveAccessToken(token: String(authToken))
+                UIHelper.showSuccessAlert(vc: self, message: nil, successBlock: { [weak self] in
+                    self?.navigationController?.popViewController(animated: true)
+                })
+            }
+            else {
+                decisionHandler(.allow);
+            }
         }
-        decisionHandler(.allow);
+        else{
+            decisionHandler(.allow)
+        }
+        
+        
+        
     }
     
     /*

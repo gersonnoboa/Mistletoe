@@ -35,9 +35,20 @@ class AccountsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @objc func handleTapLogInStatusView(_ tap: UITapGestureRecognizer){
-        goToInstagramLogin()
+        if (hasLoggedInToInstagram()) {
+            logOutOfInstagram()
+        }
+        else {
+            goToInstagramLogin()
+        }
+        
     }
     
+    func logOutOfInstagram() {
+        UserDefaultsHelper.saveAccessToken(token: nil)
+        determineLogInStatus()
+        UIHelper.showSuccessAlert(vc: self, message: nil)
+    }
     func determineLogInStatus() {
         if hasLoggedInToInstagram() {
             self.logInStatusText.text = "You are logged in. Tap here to log out.";

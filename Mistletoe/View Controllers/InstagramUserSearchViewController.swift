@@ -12,6 +12,7 @@ class InstagramUserSearchViewController: UIViewController, UISearchResultsUpdati
     
     var searchContoller: UISearchController!
     @IBOutlet weak var tableView: UITableView!
+    var httpClient: HTTPClient!
     
     let data = ["New York, NY", "Los Angeles, CA", "Chicago, IL", "Houston, TX",
                 "Philadelphia, PA", "Phoenix, AZ", "San Diego, CA", "San Antonio, TX",
@@ -21,6 +22,16 @@ class InstagramUserSearchViewController: UIViewController, UISearchResultsUpdati
     
     var filteredData: [String]!
 
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.httpClient = HTTPClient(session: URLSession.shared)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.httpClient = HTTPClient(session: URLSession.shared)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,18 +54,30 @@ class InstagramUserSearchViewController: UIViewController, UISearchResultsUpdati
         
         definesPresentationContext = true
     }
+    
     func updateSearchResults(for searchController: UISearchController) {
-        
         guard let searchText = searchContoller.searchBar.text else {
-            tableView.reloadData()
             return
         }
         
-        filteredData = searchText.isEmpty ? data : data.filter({(dataString: String) -> Bool in
-            return dataString.range(of: searchText, options: .caseInsensitive) != nil
-        })
+        if (searchText.count < 4) { return }
+        executeAPISearch(query: searchText)
         
+    }
+    
+    func executeAPISearch(query: String) {
         
+        let token = UserDefaultsHelper.getAccessToken()!
+        print(token)
+        let url = InstagramAPI.userSearch(query: query, token: token)
+        
+        self.httpClient.get(url: url) { (data, error) in
+            guard let _ = data else { return }
+            print("data: \(NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!)")
+            
+            
+            guard let json = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) else { return }
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

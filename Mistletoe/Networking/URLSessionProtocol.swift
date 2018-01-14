@@ -8,14 +8,19 @@
 
 import Foundation
 
-typealias DataTaskResult = (NSData?, URLResponse?, NSError?) -> Void
+typealias DataTaskResult = (Data?, URLResponse?, Error?) -> Void
 
 protocol URLSessionProtocol {
-    func dataTaskWithURL(url: URL, completionHandler: DataTaskResult) -> URLSessionDataTask
+    func dataTaskWithURL(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
 }
 
 extension URLSession: URLSessionProtocol {
-    func dataTaskWithURL(url: URL, completionHandler: (NSData?, URLResponse?, NSError?) -> Void) -> URLSessionDataTask {
-        return dataTaskWithURL(url: url, completionHandler: completionHandler)
+    
+    func dataTaskWithURL(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        let task:URLSessionDataTask = dataTask(with: url, completionHandler: {
+            (data:Data?, response:URLResponse?, error:Error?) in completionHandler(data,response,error) }) as URLSessionDataTask;
+        return task
+        
     }
+    
 }
