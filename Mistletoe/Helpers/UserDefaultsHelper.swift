@@ -11,6 +11,7 @@ import UIKit
 class UserDefaultsHelper: NSObject {
 
     static let accountsIdentifier = "AccountsIdentifier"
+    static let accessTokenIdentifier = "AccessTokenIdentifier"
     
     static func numberOfAccounts() -> Int {
         let accounts = getAccounts()
@@ -30,5 +31,15 @@ class UserDefaultsHelper: NSObject {
         accounts.append(account)
         
         defaults.set(accounts, forKey: accountsIdentifier)
+    }
+    
+    static func getAccessToken() -> String? {
+        let defaults = UserDefaults.standard
+        let accessToken = defaults.string(forKey: accessTokenIdentifier)
+        return accessToken
+    }
+    
+    static func saveAccessToken(token: String) {
+        
     }
 }

@@ -34,9 +34,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ryb-Z9-EdR">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ryb-Z9-EdR">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="EJC-Ez-3X7" id="TRH-GS-wjf"/>
@@ -45,16 +44,57 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ryb-Z9-EdR" firstAttribute="leading" secondItem="GvU-ZZ-XKf" secondAttribute="leading" id="1ci-ep-MM9"/>
+                            <constraint firstItem="ryb-Z9-EdR" firstAttribute="top" secondItem="2cu-ub-rc2" secondAttribute="top" id="2cd-VQ-2JD"/>
+                            <constraint firstAttribute="trailing" secondItem="ryb-Z9-EdR" secondAttribute="trailing" id="oYZ-92-gP5"/>
+                            <constraint firstItem="ryb-Z9-EdR" firstAttribute="bottom" secondItem="2cu-ub-rc2" secondAttribute="bottom" id="y0B-uO-Wr0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2cu-ub-rc2"/>
                     </view>
                     <navigationItem key="navigationItem" id="YpF-Fp-UV5"/>
                     <connections>
-                        <segue destination="9LX-nF-ndp" kind="show" identifier="AccountsToInstagramUserSearch" id="8Si-rA-dnQ"/>
+                        <segue destination="6ws-8f-BwO" kind="show" identifier="AccountsToInstagramLogin" id="mTO-3D-gzK"/>
+                        <segue destination="9LX-nF-ndp" kind="show" identifier="AccountsToInstagramUserSearch" id="b5j-Ut-PkL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vo9-ZJ-X4G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-714.39999999999998" y="-10.344827586206897"/>
+        </scene>
+        <!--Instagram Login View Controller-->
+        <scene sceneID="8HY-0d-LLb">
+            <objects>
+                <viewController id="6ws-8f-BwO" customClass="InstagramLoginViewController" customModule="Mistletoe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O4P-YK-L4X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYw-ao-kI7">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zYw-ao-kI7" firstAttribute="leading" secondItem="O4P-YK-L4X" secondAttribute="leading" id="5ud-e4-ekM"/>
+                            <constraint firstItem="zYw-ao-kI7" firstAttribute="bottom" secondItem="ptF-Oc-rBy" secondAttribute="bottom" id="9gk-jz-ylC"/>
+                            <constraint firstItem="zYw-ao-kI7" firstAttribute="top" secondItem="ptF-Oc-rBy" secondAttribute="top" id="JqA-CI-qz0"/>
+                            <constraint firstAttribute="trailing" secondItem="zYw-ao-kI7" secondAttribute="trailing" id="iDb-SF-SUb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ptF-Oc-rBy"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="zYw-ao-kI7" id="40E-AL-blP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t3o-Dl-Xia" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="189.59999999999999" y="268.51574212893553"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="exi-Sn-Jyf">
@@ -71,20 +111,39 @@
             </objects>
             <point key="canvasLocation" x="191" y="-419"/>
         </scene>
-        <!--View Controller-->
+        <!--Instagram User Search View Controller-->
         <scene sceneID="DwU-SY-Fwd">
             <objects>
-                <viewController id="9LX-nF-ndp" sceneMemberID="viewController">
+                <viewController id="9LX-nF-ndp" customClass="InstagramUserSearchViewController" customModule="Mistletoe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rX0-Bs-APR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SHT-Cy-u8z">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9LX-nF-ndp" id="PhD-k5-Wqu"/>
+                                    <outlet property="delegate" destination="9LX-nF-ndp" id="Iwf-Fj-I65"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SHT-Cy-u8z" firstAttribute="top" secondItem="3We-Mt-DXj" secondAttribute="top" id="cVb-GH-Gid"/>
+                            <constraint firstItem="SHT-Cy-u8z" firstAttribute="leading" secondItem="rX0-Bs-APR" secondAttribute="leading" id="cux-Qp-KdJ"/>
+                            <constraint firstAttribute="trailing" secondItem="SHT-Cy-u8z" secondAttribute="trailing" id="gRN-x4-inZ"/>
+                            <constraint firstItem="SHT-Cy-u8z" firstAttribute="bottom" secondItem="3We-Mt-DXj" secondAttribute="bottom" id="m6j-fp-j2c"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3We-Mt-DXj"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="SHT-Cy-u8z" id="xWe-Bb-j8i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3vp-ur-McG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="194" y="234"/>
+            <point key="canvasLocation" x="190" y="974"/>
         </scene>
     </scenes>
 </document>

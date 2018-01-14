@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0920"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "313BED1E673C2FEC295E6494399C4E22"
+               BlueprintIdentifier = "C87EEE3E05E3AD7941E813E2C8549F06"
                BuildableName = "Pods_Mistletoe.framework"
                BlueprintName = "Pods-Mistletoe"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "313BED1E673C2FEC295E6494399C4E22"
+            BlueprintIdentifier = "C87EEE3E05E3AD7941E813E2C8549F06"
             BuildableName = "Pods_Mistletoe.framework"
             BlueprintName = "Pods-Mistletoe"
             ReferencedContainer = "container:Pods.xcodeproj">

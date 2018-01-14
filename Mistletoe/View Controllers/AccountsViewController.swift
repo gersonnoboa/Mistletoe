@@ -67,12 +67,38 @@ class AccountsViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if (indexPath.section == 1){
-            self.performSegue(withIdentifier: SegueIdentifiers.AccountsToInstagramUserSearch.rawValue, sender: nil);
+            if (hasLoggedInToInstagram()) {
+                self.performSegue(withIdentifier: SegueIdentifiers.AccountsToInstagramUserSearch.rawValue, sender: nil);
+            }
+            else{
+                showInstagramLoginPrompt()
+            }
         }
         else {
             
         }
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func hasLoggedInToInstagram() -> Bool{
+        
+        if let _ = UserDefaultsHelper.getAccessToken() {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    func showInstagramLoginPrompt() {
+        let alert = UIAlertController(title: "Attention", message: "In order to add a new user, you need to log in to Instagram. Continue?", preferredStyle: .alert)
+        let cancelButton = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil);
+        alert.addAction(cancelButton)
+        let okButton = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) { (action) in
+            self.performSegue(withIdentifier: SegueIdentifiers.AccountsToInstagramLogin.rawValue, sender: nil);
+        }
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
     }
 
     /*

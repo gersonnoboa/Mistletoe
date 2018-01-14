@@ -7,7 +7,25 @@
 		<key>Mistletoe.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>4</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>3145644C2008D27700D11E42</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>314564602008D27800D11E42</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3145646B2008D27800D11E42</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
