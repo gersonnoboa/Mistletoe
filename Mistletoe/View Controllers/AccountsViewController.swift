@@ -11,6 +11,9 @@ import UIKit
 class AccountsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TintedNavigationBar {
 
     var accounts: [String] = []
+    @IBOutlet weak var logInStatusText: UILabel!
+    @IBOutlet weak var logInStatusView: UIView!
+    var logInStatusViewTapRecognizer: UITapGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +21,34 @@ class AccountsViewController: UIViewController, UITableViewDataSource, UITableVi
         self.title = "Account";
         
         accounts = UserDefaultsHelper.getAccounts()
+        configureLogInStatusView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        determineLogInStatus()
+    }
+    
+    func configureLogInStatusView() {
+        self.logInStatusViewTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTapLogInStatusView(_:)))
+        self.logInStatusView.addGestureRecognizer(self.logInStatusViewTapRecognizer)
+    }
+    
+    @objc func handleTapLogInStatusView(_ tap: UITapGestureRecognizer){
+        goToInstagramLogin()
+    }
+    
+    func determineLogInStatus() {
+        if hasLoggedInToInstagram() {
+            self.logInStatusText.text = "You are logged in. Tap here to log out.";
+            self.logInStatusText.textColor = UIColor.black
+            self.logInStatusView.backgroundColor = UIColor.green
+        }
+        else {
+            self.logInStatusText.text = "You are not logged in. Tap here to log in."
+            self.logInStatusText.textColor = UIColor.white
+            self.logInStatusView.backgroundColor = UIColor.red
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,13 +123,17 @@ class AccountsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func showInstagramLoginPrompt() {
         let alert = UIAlertController(title: "Attention", message: "In order to add a new user, you need to log in to Instagram. Continue?", preferredStyle: .alert)
-        let cancelButton = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil);
+        let cancelButton = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil)
         alert.addAction(cancelButton)
-        let okButton = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) { (action) in
-            self.performSegue(withIdentifier: SegueIdentifiers.AccountsToInstagramLogin.rawValue, sender: nil);
+        let okButton = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) { [weak self] (action) in
+            self?.goToInstagramLogin()
         }
         alert.addAction(okButton)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func goToInstagramLogin(){
+        self.performSegue(withIdentifier: SegueIdentifiers.AccountsToInstagramLogin.rawValue, sender: nil)
     }
 
     /*

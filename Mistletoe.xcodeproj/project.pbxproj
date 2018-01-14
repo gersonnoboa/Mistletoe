@@ -24,7 +24,7 @@
 		31FECEE6200A873D009991B9 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEE5200A873D009991B9 /* URLSessionProtocol.swift */; };
 		31FECEE8200A8790009991B9 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEE7200A8790009991B9 /* HTTPClient.swift */; };
 		31FECEEA200AABCA009991B9 /* InstagramLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEE9200AABCA009991B9 /* InstagramLoginViewController.swift */; };
-		31FECEEC200AB07A009991B9 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEEB200AB07A009991B9 /* Keys.swift */; };
+		31FECEEC200AB07A009991B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEEB200AB07A009991B9 /* Constants.swift */; };
 		31FECEEE200B2C8C009991B9 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEED200B2C8C009991B9 /* UIHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +67,7 @@
 		31FECEE5200A873D009991B9 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		31FECEE7200A8790009991B9 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		31FECEE9200AABCA009991B9 /* InstagramLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramLoginViewController.swift; sourceTree = "<group>"; };
-		31FECEEB200AB07A009991B9 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		31FECEEB200AB07A009991B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		31FECEED200B2C8C009991B9 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		4C335066E7081D39D92C74E7 /* Pods_MistletoeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MistletoeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADB2785EF17EAA96623778E /* Pods-MistletoeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MistletoeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MistletoeTests/Pods-MistletoeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 				3145645C2008D27700D11E42 /* Info.plist */,
 				31D4F56D20090CFE003EE9BC /* SegueIdentifiers.swift */,
 				31D4F57120090F72003EE9BC /* File.swift */,
-				31FECEEB200AB07A009991B9 /* Keys.swift */,
+				31FECEEB200AB07A009991B9 /* Constants.swift */,
 			);
 			path = Mistletoe;
 			sourceTree = "<group>";
@@ -519,7 +519,7 @@
 				31FECEEA200AABCA009991B9 /* InstagramLoginViewController.swift in Sources */,
 				31D4F5672008D773003EE9BC /* AccountsViewController.swift in Sources */,
 				314564512008D27700D11E42 /* AppDelegate.swift in Sources */,
-				31FECEEC200AB07A009991B9 /* Keys.swift in Sources */,
+				31FECEEC200AB07A009991B9 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

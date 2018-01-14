@@ -51,4 +51,13 @@ class UIHelper {
         viewController.present(alert, animated: true, completion: nil)
     }
     
+    static func showSuccessAlert(vc viewController: UIViewController, message: String? = "Operation executed successfully.") {
+        let alert = UIAlertController(title: "Success", message: message, preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alert.addAction(okButton)
+        
+        viewController.present(alert, animated: true, completion: nil)
+    }
+    
 }

@@ -23,7 +23,7 @@ class InstagramLoginViewController: UIViewController, WKNavigationDelegate {
     }
 
     func loadWebView() {
-        let url = URL(string: "https://api.instagram.com/oauth/authorize/?client_id=\(AccessKeys.InstagramClientID)&redirect_uri=REDIRECT-URI&response_type=code")
+        let url = URL(string: InstagramAPI.authURL)
         //let url = URL(string: "http:pizza")
         let request = URLRequest(url: url!)
         self.webView.load(request)
@@ -52,6 +52,23 @@ class InstagramLoginViewController: UIViewController, WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         UIHelper.Loading.hide()
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        
+        guard let url = navigationAction.request.url else { return }
+        NSLog("url \(url)")
+        
+        let stringURL = url.absoluteString
+        if stringURL.hasPrefix(InstagramAPI.redirectURL){
+            let range: Range<String.Index> = stringURL.range(of: "#access_token=")!
+            let authToken = stringURL[range.upperBound...]
+            NSLog(String(authToken))
+            
+            UserDefaultsHelper.saveAccessToken(token: String(authToken))
+            UIHelper.showSuccessAlert(vc: self)
+        }
+        decisionHandler(.allow);
     }
     
     /*

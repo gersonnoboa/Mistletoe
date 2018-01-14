@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,25 +36,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ryb-Z9-EdR">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="EJC-Ez-3X7" id="TRH-GS-wjf"/>
                                     <outlet property="delegate" destination="EJC-Ez-3X7" id="os7-2U-Ddd"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ry6-wQ-wYa">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0f-u5-Z4t">
+                                        <rect key="frame" x="8" y="12" width="359" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="R0f-u5-Z4t" firstAttribute="centerY" secondItem="ry6-wQ-wYa" secondAttribute="centerY" id="8iD-rz-UCh"/>
+                                    <constraint firstItem="R0f-u5-Z4t" firstAttribute="leading" secondItem="ry6-wQ-wYa" secondAttribute="leadingMargin" id="bsG-e2-XRa"/>
+                                    <constraint firstItem="R0f-u5-Z4t" firstAttribute="trailing" secondItem="ry6-wQ-wYa" secondAttribute="trailingMargin" id="cum-zQ-M2D"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ryb-Z9-EdR" firstAttribute="leading" secondItem="GvU-ZZ-XKf" secondAttribute="leading" id="1ci-ep-MM9"/>
-                            <constraint firstItem="ryb-Z9-EdR" firstAttribute="top" secondItem="2cu-ub-rc2" secondAttribute="top" id="2cd-VQ-2JD"/>
-                            <constraint firstAttribute="trailing" secondItem="ryb-Z9-EdR" secondAttribute="trailing" id="oYZ-92-gP5"/>
-                            <constraint firstItem="ryb-Z9-EdR" firstAttribute="bottom" secondItem="2cu-ub-rc2" secondAttribute="bottom" id="y0B-uO-Wr0"/>
+                            <constraint firstItem="ryb-Z9-EdR" firstAttribute="trailing" secondItem="ry6-wQ-wYa" secondAttribute="trailing" id="635-dD-bqC"/>
+                            <constraint firstItem="ryb-Z9-EdR" firstAttribute="top" secondItem="2cu-ub-rc2" secondAttribute="top" id="KOC-Yr-GSK"/>
+                            <constraint firstAttribute="trailing" secondItem="ryb-Z9-EdR" secondAttribute="trailing" id="ec0-Ka-7vd"/>
+                            <constraint firstItem="2cu-ub-rc2" firstAttribute="bottom" secondItem="ryb-Z9-EdR" secondAttribute="bottom" constant="44" id="f0z-z6-0Bj"/>
+                            <constraint firstItem="ry6-wQ-wYa" firstAttribute="bottom" secondItem="2cu-ub-rc2" secondAttribute="bottom" id="ifO-vS-IuJ"/>
+                            <constraint firstItem="ryb-Z9-EdR" firstAttribute="leading" secondItem="GvU-ZZ-XKf" secondAttribute="leading" id="kod-KP-idP"/>
+                            <constraint firstItem="ry6-wQ-wYa" firstAttribute="top" secondItem="ryb-Z9-EdR" secondAttribute="bottom" id="uSq-hm-pdQ"/>
+                            <constraint firstItem="ryb-Z9-EdR" firstAttribute="leading" secondItem="ry6-wQ-wYa" secondAttribute="leading" id="yMi-xI-S70"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2cu-ub-rc2"/>
                     </view>
                     <navigationItem key="navigationItem" id="YpF-Fp-UV5"/>
                     <connections>
+                        <outlet property="logInStatusText" destination="R0f-u5-Z4t" id="hU2-Jz-eTy"/>
+                        <outlet property="logInStatusView" destination="ry6-wQ-wYa" id="QWa-03-x5q"/>
                         <segue destination="6ws-8f-BwO" kind="show" identifier="AccountsToInstagramLogin" id="mTO-3D-gzK"/>
                         <segue destination="9LX-nF-ndp" kind="show" identifier="AccountsToInstagramUserSearch" id="b5j-Ut-PkL"/>
                     </connections>
