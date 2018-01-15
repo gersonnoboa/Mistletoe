@@ -67,7 +67,7 @@ class InstagramLoginViewController: UIViewController, WKNavigationDelegate {
                 let range: Range<String.Index> = stringURL.range(of: "#access_token=")!
                 let authToken = stringURL[range.upperBound...]
                 
-                UserDefaultsHelper.saveAccessToken(token: String(authToken))
+                InstagramAPI.setAccessToken(token: String(authToken))
                 UIHelper.showSuccessAlert(vc: self, message: nil, successBlock: { [weak self] in
                     self?.navigationController?.popViewController(animated: true)
                 })

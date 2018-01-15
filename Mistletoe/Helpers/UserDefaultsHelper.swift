@@ -9,38 +9,40 @@
 import UIKit
 
 class UserDefaultsHelper: NSObject {
-
-    static let accountsIdentifier = "AccountsIdentifier"
-    static let accessTokenIdentifier = "AccessTokenIdentifier"
     
-    static func numberOfAccounts() -> Int {
-        let accounts = getAccounts()
-        return accounts.count
+    static func countStringArray(key: String) -> Int {
+        let array = getStringArray(key: key)
+        guard let a = array else { return 0 }
+        return a.count
     }
     
-    static func getAccounts() -> [String] {
+    static func setStringInArray(key: String, string: String) {
         let defaults = UserDefaults.standard
-        let accounts = defaults.stringArray(forKey: accountsIdentifier)
-        guard let acc = accounts else { return [] }
-        return acc
-    }
-    
-    static func saveNewAccount(account: String) {
-        let defaults = UserDefaults.standard
-        var accounts = getAccounts()
-        accounts.append(account)
+        var array = getStringArray(key: key)
+        if let _ = array { }
+        else {
+            array = []
+        }
+        array!.append(string)
         
-        defaults.set(accounts, forKey: accountsIdentifier)
+        defaults.set(array, forKey: key)
     }
     
-    static func getAccessToken() -> String? {
+    static func getStringArray(key: String) -> [String]? {
         let defaults = UserDefaults.standard
-        let accessToken = defaults.string(forKey: accessTokenIdentifier)
-        return accessToken
+        let array = defaults.stringArray(forKey: key)
+        return array
     }
     
-    static func saveAccessToken(token: String?) {
+    static func getString(key: String) -> String? {
         let defaults = UserDefaults.standard
-        defaults.set(token, forKey: accessTokenIdentifier)
+        let string = defaults.string(forKey: key)
+        return string
     }
+    
+    static func setString(key: String, value: String?) {
+        let defaults = UserDefaults.standard
+        defaults.set(value, forKey: key)
+    }
+    
 }

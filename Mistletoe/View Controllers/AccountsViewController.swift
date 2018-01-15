@@ -20,7 +20,10 @@ class AccountsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         self.title = "Account";
         
-        accounts = UserDefaultsHelper.getAccounts()
+        if let accs = InstagramAccountsHelper.getAccounts() {
+            accounts = accs
+        }
+        
         configureLogInStatusView()
     }
     
@@ -45,7 +48,7 @@ class AccountsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func logOutOfInstagram() {
-        UserDefaultsHelper.saveAccessToken(token: nil)
+        InstagramAPI.setAccessToken(token: nil)
         determineLogInStatus()
         UIHelper.showSuccessAlert(vc: self, message: nil)
     }
@@ -124,7 +127,7 @@ class AccountsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func hasLoggedInToInstagram() -> Bool{
         
-        if let _ = UserDefaultsHelper.getAccessToken() {
+        if let _ = InstagramAPI.getAccessToken() {
             return true;
         }
         else {

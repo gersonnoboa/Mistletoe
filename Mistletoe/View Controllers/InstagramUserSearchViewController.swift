@@ -14,14 +14,7 @@ class InstagramUserSearchViewController: UIViewController, UISearchResultsUpdati
     @IBOutlet weak var tableView: UITableView!
     var httpClient: HTTPClient!
     
-    let data = ["New York, NY", "Los Angeles, CA", "Chicago, IL", "Houston, TX",
-                "Philadelphia, PA", "Phoenix, AZ", "San Diego, CA", "San Antonio, TX",
-                "Dallas, TX", "Detroit, MI", "San Jose, CA", "Indianapolis, IN",
-                "Jacksonville, FL", "San Francisco, CA", "Columbus, OH", "Austin, TX",
-                "Memphis, TN", "Baltimore, MD", "Charlotte, ND", "Fort Worth, TX"]
-    
-    var filteredData: [String]!
-
+    var instagramUserData: [InstagramUser] = []
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -36,7 +29,6 @@ class InstagramUserSearchViewController: UIViewController, UISearchResultsUpdati
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        filteredData = data
         self.title = "Add new account"
         
         self.createSearchController()
@@ -56,28 +48,68 @@ class InstagramUserSearchViewController: UIViewController, UISearchResultsUpdati
     }
     
     func updateSearchResults(for searchController: UISearchController) {
+        
         guard let searchText = searchContoller.searchBar.text else {
+            resetTable(cancelRequests: true)
             return
         }
         
-        if (searchText.count < 4) { return }
-        executeAPISearch(query: searchText)
+        if (searchText.count == 0) {
+            resetTable(cancelRequests: true)
+        }
+        else {
+            executeAPISearch(query: searchText)
+        }
         
     }
     
+    func resetTable(cancelRequests: Bool) {
+        if (cancelRequests) {
+            self.httpClient.cancelAllRequests()
+        }
+        self.instagramUserData = []
+        self.tableView.reloadData()
+    }
     func executeAPISearch(query: String) {
         
-        let token = UserDefaultsHelper.getAccessToken()!
-        print(token)
+        let token = InstagramAPI.getAccessToken()!
         let url = InstagramAPI.userSearch(query: query, token: token)
         
-        self.httpClient.get(url: url) { (data, error) in
-            guard let _ = data else { return }
-            print("data: \(NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!)")
+        self.httpClient.get(url: url) { [weak self] (data, error) in
             
-            
-            guard let json = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) else { return }
+            UIHelper.executeInMainQueue {
+                self?.jsonParsing(data: data)
+            }
         }
+    }
+    
+    func jsonParsing(data: Data?) {
+        self.instagramUserData = []
+        guard let _ = data else { return }
+        guard let json = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:Any] else {
+            self.resetTable(cancelRequests: false)
+            return
+        }
+        guard let igData = json["data"] as? [[String:Any]] else {
+            self.resetTable(cancelRequests: false)
+            return
+            
+        }
+        
+        for item in igData {
+            let user = InstagramUser()
+            user.bio = item["bio"] as! String
+            user.fullName = item["full_name"] as! String
+            user.id = item["id"] as! String
+            user.isBusiness = item["is_business"] as! Bool
+            user.profilePicture = item["profile_picture"] as! String
+            user.username = item["username"] as! String
+            user.website = item["website"] as! String
+            instagramUserData.append(user)
+        }
+        
+        self.tableView.reloadData()
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,12 +117,12 @@ class InstagramUserSearchViewController: UIViewController, UISearchResultsUpdati
         if (cell == nil){
             cell = UITableViewCell(style: .default, reuseIdentifier: "TableCell")
         }
-        cell!.textLabel?.text = filteredData[indexPath.row]
+        cell!.textLabel?.text = self.instagramUserData[indexPath.row].username
         return cell!
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredData.count
+        return self.instagramUserData.count
     }
     
     override func didReceiveMemoryWarning() {

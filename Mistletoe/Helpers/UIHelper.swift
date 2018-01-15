@@ -69,4 +69,10 @@ class UIHelper {
         viewController.present(alert, animated: true, completion: nil)
     }
     
+    static func executeInMainQueue(block: @escaping () -> (Void)) {
+        DispatchQueue.main.async {
+            block();
+        }
+    }
+    
 }

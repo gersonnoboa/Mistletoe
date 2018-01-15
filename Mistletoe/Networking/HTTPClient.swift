@@ -18,13 +18,27 @@ class HTTPClient {
     }
     
     func get(url: String, completion: @escaping HTTPResult) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let u = URL(string: url)!
         
         let dataTask = session.dataTaskWithURL(with: u) { (data, response, error) in
             completion(data as Data?, error)
+            UIHelper.executeInMainQueue {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
         }
         dataTask.resume()
         
+    }
+    
+    func cancelAllRequests() {
+        if (self.session is URLSession) {
+            (self.session as! URLSession).getAllTasks(completionHandler: { (tasks) in
+                for task in tasks {
+                    task.cancel()
+                }
+            })
+        }
     }
     
     
