@@ -78,8 +78,10 @@
                     <connections>
                         <outlet property="logInStatusText" destination="R0f-u5-Z4t" id="hU2-Jz-eTy"/>
                         <outlet property="logInStatusView" destination="ry6-wQ-wYa" id="QWa-03-x5q"/>
+                        <outlet property="tableView" destination="ryb-Z9-EdR" id="ioT-X5-Zo0"/>
                         <segue destination="6ws-8f-BwO" kind="show" identifier="AccountsToInstagramLogin" id="mTO-3D-gzK"/>
                         <segue destination="9LX-nF-ndp" kind="show" identifier="AccountsToInstagramUserSearch" id="b5j-Ut-PkL"/>
+                        <segue destination="qEX-1W-DO6" kind="show" identifier="AccountsToInstagramUserPhotos" id="Aue-eX-2B7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vo9-ZJ-X4G" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -120,20 +122,46 @@
             </objects>
             <point key="canvasLocation" x="189.59999999999999" y="268.51574212893553"/>
         </scene>
-        <!--View Controller-->
+        <!--Instagram User Photos View Controller-->
         <scene sceneID="exi-Sn-Jyf">
             <objects>
-                <viewController id="qEX-1W-DO6" sceneMemberID="viewController">
+                <viewController id="qEX-1W-DO6" customClass="InstagramUserPhotosViewController" customModule="Mistletoe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ii2-uj-5GU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="L9Z-mr-4Oj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mYq-TG-cUm">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ahp-1z-nKT">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="Qyo-qR-Xrb"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="L9Z-mr-4Oj" id="bnS-WZ-I8L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VGl-X6-9A6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="191" y="-419"/>
+            <point key="canvasLocation" x="189.59999999999999" y="-419.64017991004499"/>
         </scene>
         <!--Instagram User Search View Controller-->
         <scene sceneID="DwU-SY-Fwd">

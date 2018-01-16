@@ -16,16 +16,33 @@ class UserDefaultsHelper: NSObject {
         return a.count
     }
     
-    static func setStringInArray(key: String, string: String) {
+    static func setStringArray(key: String, array: [String]?) {
+        let defaults = UserDefaults.standard
+        defaults.set(array, forKey: key)
+    }
+    static func addStringInArray(key: String, string: String) {
+        let _ = addStringInArray(key: key, string: string, shouldVerifyUniqueness: false)
+    }
+    
+    static func addStringInArray(key: String, string: String, shouldVerifyUniqueness: Bool) -> Bool {
+        
         let defaults = UserDefaults.standard
         var array = getStringArray(key: key)
         if let _ = array { }
         else {
             array = []
         }
-        array!.append(string)
         
-        defaults.set(array, forKey: key)
+        let isUnique = array!.contains(string)
+        if (shouldVerifyUniqueness && !isUnique) || !shouldVerifyUniqueness {
+            array!.append(string)
+            defaults.set(array!, forKey: key)
+            return true;
+        }
+        else {
+            return false;
+        }
+        
     }
     
     static func getStringArray(key: String) -> [String]? {

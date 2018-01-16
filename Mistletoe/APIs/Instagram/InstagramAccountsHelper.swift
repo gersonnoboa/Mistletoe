@@ -15,4 +15,12 @@ class InstagramAccountsHelper {
     static func getAccounts() -> [String]?{
         return UserDefaultsHelper.getStringArray(key: accountsIdentifier)
     }
+    
+    static func addAccount(account: String) -> Bool {
+        return UserDefaultsHelper.addStringInArray(key: accountsIdentifier, string: account, shouldVerifyUniqueness: true)
+    }
+    
+    static func deleteAccounts() {
+        UserDefaultsHelper.setStringArray(key: accountsIdentifier, array: [])
+    }
 }

@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let navBarAppearance = UINavigationBar.appearance()
@@ -22,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navBarAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         UIApplication.shared.statusBarStyle = .lightContent
         
+        InstagramAccountsHelper.deleteAccounts()
         
         // Override point for customization after application launch.
         return true

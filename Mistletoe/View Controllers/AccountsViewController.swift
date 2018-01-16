@@ -13,16 +13,15 @@ class AccountsViewController: UIViewController, UITableViewDataSource, UITableVi
     var accounts: [String] = []
     @IBOutlet weak var logInStatusText: UILabel!
     @IBOutlet weak var logInStatusView: UIView!
+    @IBOutlet weak var tableView: UITableView!
     var logInStatusViewTapRecognizer: UITapGestureRecognizer!
+    
+    private var presentingInstagramUser: InstagramUser!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Account";
-        
-        if let accs = InstagramAccountsHelper.getAccounts() {
-            accounts = accs
-        }
         
         configureLogInStatusView()
     }
@@ -30,6 +29,10 @@ class AccountsViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         determineLogInStatus()
+        if let accs = InstagramAccountsHelper.getAccounts() {
+            accounts = accs
+        }
+        self.tableView.reloadData()
     }
     
     func configureLogInStatusView() {
@@ -120,11 +123,20 @@ class AccountsViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }
         else {
-            
+            //self.presentingInstagramUser = self.accounts[indexPath.row]
+            self.performSegue(withIdentifier: SegueIdentifiers.AccountsToInstagramUserPhotos.rawValue, sender: nil)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if (segue.identifier == SegueIdentifiers.AccountsToInstagramUserPhotos.rawValue) {
+            let vc = segue.destination as! InstagramUserPhotosViewController
+            vc.user = ""
+        }
+    }
     func hasLoggedInToInstagram() -> Bool{
         
         if let _ = InstagramAPI.getAccessToken() {

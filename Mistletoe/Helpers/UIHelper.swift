@@ -69,6 +69,14 @@ class UIHelper {
         viewController.present(alert, animated: true, completion: nil)
     }
     
+    static func showAlert(vc viewController: UIViewController, title: String, message: String, buttonTitle: String = "Okay") {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let button = UIAlertAction(title: buttonTitle, style: UIAlertActionStyle.default) { (action) in
+            
+        }
+        alert.addAction(button)
+        viewController.present(alert, animated: true, completion: nil)
+    }
     static func executeInMainQueue(block: @escaping () -> (Void)) {
         DispatchQueue.main.async {
             block();

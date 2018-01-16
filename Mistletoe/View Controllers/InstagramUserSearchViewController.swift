@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InstagramUserSearchViewController: UIViewController, UISearchResultsUpdating, UITableViewDataSource {
+class InstagramUserSearchViewController: UIViewController, UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate {
     
     var searchContoller: UISearchController!
     @IBOutlet weak var tableView: UITableView!
@@ -123,6 +123,44 @@ class InstagramUserSearchViewController: UIViewController, UISearchResultsUpdati
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.instagramUserData.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let user = self.instagramUserData[indexPath.row]
+        self.addUser(user: user)
+    }
+    
+    func addUser(user: InstagramUser){
+        if (InstagramAccountsHelper.addAccount(account: user.username)){
+            decideUserSelectNavigation(user: user)
+        }
+        else {
+            displayDuplicationError(user: user)
+        }
+    }
+    
+    func displayDuplicationError(user: InstagramUser) {
+        UIHelper.showAlert(vc: self, title: "Error", message: "User \(user.username) has already been added")
+    }
+    
+    func decideUserSelectNavigation(user: InstagramUser) {
+        let alert = UIAlertController(title: "Success", message: "User added successfully. What would you like to do next?", preferredStyle: UIAlertControllerStyle.alert)
+        let viewPictures = UIAlertAction(title: "View user's pictures", style: UIAlertActionStyle.default) { [weak self] (action) in
+            
+        }
+        alert.addAction(viewPictures)
+        
+        let searchForAnotherUser = UIAlertAction(title: "Search for another user", style: UIAlertActionStyle.default) { [weak self] (action) in
+            
+        }
+        alert.addAction(searchForAnotherUser)
+        let goToTheHomeScreen = UIAlertAction(title: "Go to the home screen", style: UIAlertActionStyle.cancel) { [weak self](action) in
+            self?.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(goToTheHomeScreen)
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
