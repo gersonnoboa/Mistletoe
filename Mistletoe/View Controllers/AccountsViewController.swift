@@ -88,6 +88,7 @@ class AccountsViewController: UIViewController, TintedNavigationBar {
         InstagramAPI.setAccessToken(token: nil)
         determineLogInStatus()
         UIHelper.showSuccessAlert(vc: self, message: nil)
+        FunctionalHelper.deleteCookies()
     }
     
     func showInstagramLoginPrompt() {

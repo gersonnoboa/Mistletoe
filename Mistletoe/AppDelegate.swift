@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navBarAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         UIApplication.shared.statusBarStyle = .lightContent
         
-        //InstagramAccountsHelper.deleteAccounts()
+        InstagramAccountsHelper.deleteAccounts()
         //SDImageCache.shared().clearMemory()
         //SDImageCache.shared().clearDisk()
         

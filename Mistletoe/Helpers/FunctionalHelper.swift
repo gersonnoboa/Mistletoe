@@ -7,7 +7,20 @@
 //
 
 import UIKit
+import WebKit
 
 class FunctionalHelper {
 
+    static func deleteCookies() {
+        let dataStore = WKWebsiteDataStore.default()
+        dataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { (records) in
+            for record in records {
+                if record.displayName.contains("instagram") {
+                    dataStore.removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), for: [record], completionHandler: {
+                        print("Deleted: " + record.displayName);
+                    })
+                }
+            }
+        }
+    }
 }

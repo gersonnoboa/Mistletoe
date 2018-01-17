@@ -60,7 +60,7 @@ class InstagramUserSearchViewController: UIViewController{
             
             UIHelper.executeInMainQueue {
                 if (error != nil) {
-                    UIHelper.showNetworkingError(vc: self, retryBlock: nil)
+                    //UIHelper.showNetworkingError(vc: self, retryBlock: nil)
                 }
                 else {
                     self?.jsonParsing(data: data)

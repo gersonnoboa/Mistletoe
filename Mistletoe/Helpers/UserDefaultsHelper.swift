@@ -62,7 +62,7 @@ class UserDefaultsHelper: NSObject {
     
     static func getObjectArray(key: String) -> [NSCoding]? {
         let defaults = UserDefaults.standard
-        let data = defaults.object(forKey: key) as! Data
+        guard let data = defaults.object(forKey: key) as? Data else { return nil }
         let decoded = NSKeyedUnarchiver.unarchiveObject(with: data) as? [NSCoding]
         return decoded
         
