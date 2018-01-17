@@ -8,30 +8,25 @@
 
 import UIKit
 
-class InstagramUserSearchViewController: UIViewController, UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate {
+class InstagramUserSearchViewController: UIViewController{
+    
+    var httpClient: HTTPClient! = HTTPClient.def()
     
     var searchContoller: UISearchController!
     @IBOutlet weak var tableView: UITableView!
-    var httpClient: HTTPClient!
     
     var instagramUserData: [InstagramUser] = []
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        self.httpClient = HTTPClient(session: URLSession.shared)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.httpClient = HTTPClient(session: URLSession.shared)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.title = "Add new account"
         
         self.createSearchController()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
     func createSearchController(){
@@ -47,35 +42,20 @@ class InstagramUserSearchViewController: UIViewController, UISearchResultsUpdati
         definesPresentationContext = true
     }
     
-    func updateSearchResults(for searchController: UISearchController) {
-        
-        guard let searchText = searchContoller.searchBar.text else {
-            resetTable(cancelRequests: true)
-            return
-        }
-        
-        if (searchText.count == 0) {
-            resetTable(cancelRequests: true)
-        }
-        else {
-            executeAPISearch(query: searchText)
-        }
-        
-    }
-    
     func resetTable(cancelRequests: Bool) {
         if (cancelRequests) {
-            self.httpClient.cancelAllRequests()
+            httpClient.cancelAllRequests()
         }
         self.instagramUserData = []
         self.tableView.reloadData()
     }
+    
     func executeAPISearch(query: String) {
         
         let token = InstagramAPI.getAccessToken()!
         let url = InstagramAPI.userSearch(query: query, token: token)
         
-        self.httpClient.get(url: url) { [weak self] (data, error) in
+        httpClient.get(url: url) { [weak self] (data, error) in
             
             UIHelper.executeInMainQueue {
                 self?.jsonParsing(data: data)
@@ -112,28 +92,8 @@ class InstagramUserSearchViewController: UIViewController, UISearchResultsUpdati
         
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "TableCell") as UITableViewCell?
-        if (cell == nil){
-            cell = UITableViewCell(style: .default, reuseIdentifier: "TableCell")
-        }
-        cell!.textLabel?.text = self.instagramUserData[indexPath.row].username
-        return cell!
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.instagramUserData.count
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        let user = self.instagramUserData[indexPath.row]
-        self.addUser(user: user)
-    }
-    
     func addUser(user: InstagramUser){
-        if (InstagramAccountsHelper.addAccount(account: user.username)){
+        if (InstagramAccountsHelper.addAccount(account: user)){
             decideUserSelectNavigation(user: user)
         }
         else {
@@ -163,20 +123,46 @@ class InstagramUserSearchViewController: UIViewController, UISearchResultsUpdati
         self.present(alert, animated: true, completion: nil)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+}
+
+extension InstagramUserSearchViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        guard let searchText = searchContoller.searchBar.text else {
+            resetTable(cancelRequests: true)
+            return
+        }
+        
+        if (searchText.count == 0) {
+            resetTable(cancelRequests: true)
+        }
+        else {
+            executeAPISearch(query: searchText)
+        }
+        
+    }
+}
+
+extension InstagramUserSearchViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "TableCell") as UITableViewCell?
+        if (cell == nil){
+            cell = UITableViewCell(style: .default, reuseIdentifier: "TableCell")
+        }
+        cell!.textLabel?.text = self.instagramUserData[indexPath.row].username
+        return cell!
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.instagramUserData.count
     }
-    */
+}
 
+extension InstagramUserSearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let user = self.instagramUserData[indexPath.row]
+        self.addUser(user: user)
+    }
 }

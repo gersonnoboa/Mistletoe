@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 import NVActivityIndicatorView
 
-class InstagramLoginViewController: UIViewController, WKNavigationDelegate {
+class InstagramLoginViewController: UIViewController {
 
     @IBOutlet weak var webView: WKWebView!
     
@@ -23,6 +23,11 @@ class InstagramLoginViewController: UIViewController, WKNavigationDelegate {
         // Do any additional setup after loading the view.
     }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     func loadWebView() {
         let url = URL(string: InstagramAPI.authURL)
         //let url = URL(string: "http:pizza")
@@ -31,12 +36,10 @@ class InstagramLoginViewController: UIViewController, WKNavigationDelegate {
         UIHelper.Loading.show()
         
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
+}
+
+extension InstagramLoginViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         UIHelper.Loading.hide()
         UIHelper.showNetworkingError(vc: self, shouldPop: true) { [weak self] () -> (Void) in
@@ -79,19 +82,5 @@ class InstagramLoginViewController: UIViewController, WKNavigationDelegate {
         else{
             decisionHandler(.allow)
         }
-        
-        
-        
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

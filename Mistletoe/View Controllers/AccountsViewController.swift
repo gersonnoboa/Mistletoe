@@ -8,13 +8,15 @@
 
 import UIKit
 
-class AccountsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TintedNavigationBar {
+class AccountsViewController: UIViewController, TintedNavigationBar {
 
-    var accounts: [String] = []
+    var accounts: [InstagramUser] = []
     @IBOutlet weak var logInStatusText: UILabel!
     @IBOutlet weak var logInStatusView: UIView!
     @IBOutlet weak var tableView: UITableView!
     var logInStatusViewTapRecognizer: UITapGestureRecognizer!
+    
+    let httpClient = HTTPClient.def()
     
     private var presentingInstagramUser: InstagramUser!
     
@@ -35,6 +37,11 @@ class AccountsViewController: UIViewController, UITableViewDataSource, UITableVi
         self.tableView.reloadData()
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     func configureLogInStatusView() {
         self.logInStatusViewTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTapLogInStatusView(_:)))
         self.logInStatusView.addGestureRecognizer(self.logInStatusViewTapRecognizer)
@@ -50,11 +57,6 @@ class AccountsViewController: UIViewController, UITableViewDataSource, UITableVi
         
     }
     
-    func logOutOfInstagram() {
-        InstagramAPI.setAccessToken(token: nil)
-        determineLogInStatus()
-        UIHelper.showSuccessAlert(vc: self, message: nil)
-    }
     func determineLogInStatus() {
         if hasLoggedInToInstagram() {
             self.logInStatusText.text = "You are logged in. Tap here to log out.";
@@ -67,76 +69,7 @@ class AccountsViewController: UIViewController, UITableViewDataSource, UITableVi
             self.logInStatusView.backgroundColor = UIColor.red
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2;
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if (section == 0){
-            return accounts.count;
-        }
-        else{
-            return 1;
-        }
-        
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (indexPath.section == 1) {
-            let newAccountCellIdentifier = "newAccountCellIdentifier"
-            var cell = tableView.dequeueReusableCell(withIdentifier: newAccountCellIdentifier)
-            if (cell == nil){
-                cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: newAccountCellIdentifier)
-            }
-            
-            cell!.textLabel?.text = "Add new account...";
-            
-            return cell!;
-        }
-        else {
-            let accountCellIdentifier = "accountCellIdentifier"
-            var cell = tableView.dequeueReusableCell(withIdentifier: accountCellIdentifier)
-            if (cell == nil){
-                cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: accountCellIdentifier);
-            }
-            
-            cell!.textLabel?.text = accounts[indexPath.row];
-            
-            return cell!;
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if (indexPath.section == 1){
-            if (hasLoggedInToInstagram()) {
-                self.performSegue(withIdentifier: SegueIdentifiers.AccountsToInstagramUserSearch.rawValue, sender: nil);
-            }
-            else{
-                showInstagramLoginPrompt()
-            }
-        }
-        else {
-            //self.presentingInstagramUser = self.accounts[indexPath.row]
-            self.performSegue(withIdentifier: SegueIdentifiers.AccountsToInstagramUserPhotos.rawValue, sender: nil)
-        }
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        if (segue.identifier == SegueIdentifiers.AccountsToInstagramUserPhotos.rawValue) {
-            let vc = segue.destination as! InstagramUserPhotosViewController
-            vc.user = ""
-        }
-    }
     func hasLoggedInToInstagram() -> Bool{
         
         if let _ = InstagramAPI.getAccessToken() {
@@ -145,6 +78,12 @@ class AccountsViewController: UIViewController, UITableViewDataSource, UITableVi
         else {
             return false;
         }
+    }
+    
+    func logOutOfInstagram() {
+        InstagramAPI.setAccessToken(token: nil)
+        determineLogInStatus()
+        UIHelper.showSuccessAlert(vc: self, message: nil)
     }
     
     func showInstagramLoginPrompt() {
@@ -161,15 +100,78 @@ class AccountsViewController: UIViewController, UITableViewDataSource, UITableVi
     func goToInstagramLogin(){
         self.performSegue(withIdentifier: SegueIdentifiers.AccountsToInstagramLogin.rawValue, sender: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        if (segue.identifier == SegueIdentifiers.AccountsToInstagramUserPhotos.rawValue) {
+            let vc = segue.destination as! InstagramUserPhotosViewController
+            vc.user = self.presentingInstagramUser
+        }
     }
-    */
+    
+}
 
+extension AccountsViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2;
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if (section == 0){
+            return accounts.count;
+        }
+        else{
+            return 1;
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if (indexPath.section == 1) {
+            let newAccountCellIdentifier = "newAccountCellIdentifier"
+            var cell = tableView.dequeueReusableCell(withIdentifier: newAccountCellIdentifier)
+            if (cell == nil){
+                cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: newAccountCellIdentifier)
+            }
+            
+            cell!.textLabel?.text = "Add new account...";
+            
+            return cell!;
+        }
+        else {
+            let accountCellIdentifier = "accountCellIdentifier"
+            var cell = tableView.dequeueReusableCell(withIdentifier: accountCellIdentifier)
+            if (cell == nil){
+                cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: accountCellIdentifier);
+            }
+            
+            let user = accounts[indexPath.row]
+            cell!.textLabel?.text = user.username;
+            cell!.detailTextLabel?.text = "No new content"
+            self.httpClient.getImage(url: user.profilePicture, imageView: cell!.imageView)
+            
+            return cell!;
+        }
+    }
+}
+
+extension AccountsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if (indexPath.section == 1){
+            if (hasLoggedInToInstagram()) {
+                self.performSegue(withIdentifier: SegueIdentifiers.AccountsToInstagramUserSearch.rawValue, sender: nil);
+            }
+            else{
+                showInstagramLoginPrompt()
+            }
+        }
+        else {
+            self.presentingInstagramUser = self.accounts[indexPath.row]
+            self.performSegue(withIdentifier: SegueIdentifiers.AccountsToInstagramUserPhotos.rawValue, sender: nil)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }

@@ -25,8 +25,6 @@ class UserDefaultsHelper: NSObject {
     }
     
     static func addStringInArray(key: String, string: String, shouldVerifyUniqueness: Bool) -> Bool {
-        
-        let defaults = UserDefaults.standard
         var array = getStringArray(key: key)
         if let _ = array { }
         else {
@@ -36,7 +34,7 @@ class UserDefaultsHelper: NSObject {
         let isUnique = array!.contains(string)
         if (shouldVerifyUniqueness && !isUnique) || !shouldVerifyUniqueness {
             array!.append(string)
-            defaults.set(array!, forKey: key)
+            setStringArray(key: key, array: array!)
             return true;
         }
         else {
@@ -60,6 +58,30 @@ class UserDefaultsHelper: NSObject {
     static func setString(key: String, value: String?) {
         let defaults = UserDefaults.standard
         defaults.set(value, forKey: key)
+    }
+    
+    static func getObjectArray(key: String) -> [NSCoding]? {
+        let defaults = UserDefaults.standard
+        let data = defaults.object(forKey: key) as! Data
+        let decoded = NSKeyedUnarchiver.unarchiveObject(with: data) as? [NSCoding]
+        return decoded
+        
+    }
+    static func addObjectInArray(key: String, object: NSCoding) {
+        var array = getObjectArray(key: key)
+        
+        if array == nil {
+            array = []
+        }
+        
+        array?.append(object)
+        setObjectArray(key: key, array: array)
+    }
+    
+    static func setObjectArray(key: String, array: [NSCoding]?) {
+        let defaults = UserDefaults.standard
+        let encoded = NSKeyedArchiver.archivedData(withRootObject: array as Any)
+        defaults.set(encoded, forKey: key)
     }
     
 }

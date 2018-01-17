@@ -8,19 +8,34 @@
 
 import Foundation
 
-class InstagramAccountsHelper {
-    
+struct InstagramAccountsHelper {
     static let accountsIdentifier = "AccountsIdentifier"
-    
-    static func getAccounts() -> [String]?{
-        return UserDefaultsHelper.getStringArray(key: accountsIdentifier)
+}
+
+extension InstagramAccountsHelper {
+    static func getAccounts() -> [InstagramUser]?{
+        return UserDefaultsHelper.getObjectArray(key: accountsIdentifier) as? [InstagramUser]
     }
     
-    static func addAccount(account: String) -> Bool {
-        return UserDefaultsHelper.addStringInArray(key: accountsIdentifier, string: account, shouldVerifyUniqueness: true)
+    static func addAccount(account: InstagramUser) -> Bool {
+        let accounts = getAccounts()
+        
+        if (accounts != nil) {
+            
+            let accountExists = accounts!.contains(where: { (user) -> Bool in
+                return user.id == account.id
+            })
+            
+            if (accountExists) {
+                return false
+            }
+        }
+        
+        UserDefaultsHelper.addObjectInArray(key: accountsIdentifier, object: account)
+        return true
     }
     
     static func deleteAccounts() {
-        UserDefaultsHelper.setStringArray(key: accountsIdentifier, array: [])
+        UserDefaultsHelper.setObjectArray(key: accountsIdentifier, array: nil)
     }
 }

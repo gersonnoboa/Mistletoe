@@ -17,6 +17,10 @@ class HTTPClient {
         self.session = session;
     }
     
+    static func def() -> HTTPClient {
+        return HTTPClient(session: URLSession.shared)
+    }
+    
     func get(url: String, completion: @escaping HTTPResult) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let u = URL(string: url)!
@@ -29,6 +33,18 @@ class HTTPClient {
         }
         dataTask.resume()
         
+    }
+    
+    func getImage(url: String, imageView: UIImageView?, completion: HTTPResult? = nil) {
+        
+        guard let imageView = imageView else { return }
+        get(url: url) { (data, error) in
+            guard let data = data else { return }
+            UIHelper.executeInMainQueue {
+                completion?(data, error)
+                imageView.image = UIImage(data: data)
+            }
+        }
     }
     
     func cancelAllRequests() {

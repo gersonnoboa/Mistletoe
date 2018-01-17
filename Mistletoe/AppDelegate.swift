@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navBarAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         UIApplication.shared.statusBarStyle = .lightContent
         
-        InstagramAccountsHelper.deleteAccounts()
+        //InstagramAccountsHelper.deleteAccounts()
         
         // Override point for customization after application launch.
         return true
