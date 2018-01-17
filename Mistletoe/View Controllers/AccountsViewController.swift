@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import SDWebImage
 
 class AccountsViewController: UIViewController, TintedNavigationBar {
 
+    let accountsCellIdentifier = "Accounts"
+    let addNewAccountCellIdentifier = "AddNewAccount"
+    
     var accounts: [InstagramUser] = []
     @IBOutlet weak var logInStatusText: UILabel!
     @IBOutlet weak var logInStatusView: UIView!
@@ -23,7 +27,7 @@ class AccountsViewController: UIViewController, TintedNavigationBar {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Account";
+        self.title = "Mistletoe";
         
         configureLogInStatusView()
     }
@@ -128,32 +132,34 @@ extension AccountsViewController: UITableViewDataSource {
         
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.section == 1) {
-            let newAccountCellIdentifier = "newAccountCellIdentifier"
-            var cell = tableView.dequeueReusableCell(withIdentifier: newAccountCellIdentifier)
-            if (cell == nil){
-                cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: newAccountCellIdentifier)
-            }
-            
-            cell!.textLabel?.text = "Add new account...";
-            
-            return cell!;
+            let cell = tableView.dequeueReusableCell(withIdentifier: self.addNewAccountCellIdentifier)
+            return cell!
         }
         else {
-            let accountCellIdentifier = "accountCellIdentifier"
-            var cell = tableView.dequeueReusableCell(withIdentifier: accountCellIdentifier)
-            if (cell == nil){
-                cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: accountCellIdentifier);
-            }
-            
+            let cell = tableView.dequeueReusableCell(withIdentifier: self.accountsCellIdentifier) as! AccountsTableViewCell
             let user = accounts[indexPath.row]
-            cell!.textLabel?.text = user.username;
-            cell!.detailTextLabel?.text = "No new content"
-            self.httpClient.getImage(url: user.profilePicture, imageView: cell!.imageView)
+            cell.title?.text = user.username;
+            cell.subtitle?.text = "No new content"
             
-            return cell!;
+            let url = URL(string: user.profilePicture)
+            cell.profilePicture?.sd_setImage(with: url, placeholderImage: UIImage(named: "Placeholder"))
+            return cell
         }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Accounts you are following"
+        }
+        
+        return nil
     }
 }
 

@@ -24,6 +24,7 @@
 		31D4F56E20090CFE003EE9BC /* SegueIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4F56D20090CFE003EE9BC /* SegueIdentifiers.swift */; };
 		31D4F57020090D48003EE9BC /* InstagramUserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4F56F20090D48003EE9BC /* InstagramUserSearchViewController.swift */; };
 		31D4F57220090F72003EE9BC /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4F57120090F72003EE9BC /* File.swift */; };
+		31FE1D70200FA49E008D6351 /* AccountsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D6E200FA49E008D6351 /* AccountsTableViewCell.swift */; };
 		31FECEE6200A873D009991B9 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEE5200A873D009991B9 /* URLSessionProtocol.swift */; };
 		31FECEE8200A8790009991B9 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEE7200A8790009991B9 /* HTTPClient.swift */; };
 		31FECEEA200AABCA009991B9 /* InstagramLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEE9200AABCA009991B9 /* InstagramLoginViewController.swift */; };
@@ -70,6 +71,7 @@
 		31D4F56D20090CFE003EE9BC /* SegueIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifiers.swift; sourceTree = "<group>"; };
 		31D4F56F20090D48003EE9BC /* InstagramUserSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramUserSearchViewController.swift; sourceTree = "<group>"; };
 		31D4F57120090F72003EE9BC /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		31FE1D6E200FA49E008D6351 /* AccountsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsTableViewCell.swift; sourceTree = "<group>"; };
 		31FECEE5200A873D009991B9 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		31FECEE7200A8790009991B9 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		31FECEE9200AABCA009991B9 /* InstagramLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramLoginViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		3145644F2008D27700D11E42 /* Mistletoe */ = {
 			isa = PBXGroup;
 			children = (
+				31FE1D72200FA4A4008D6351 /* Cells */,
 				3153B5BB200D389700472643 /* Objects */,
 				3153B5B9200D331300472643 /* APIs */,
 				31FECEEF200B2CB9009991B9 /* Helpers */,
@@ -215,6 +218,14 @@
 				31FECEE7200A8790009991B9 /* HTTPClient.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		31FE1D72200FA4A4008D6351 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				31FE1D6E200FA49E008D6351 /* AccountsTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		31FECEEF200B2CB9009991B9 /* Helpers */ = {
@@ -431,13 +442,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Mistletoe/Pods-Mistletoe-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -558,6 +569,7 @@
 				314564512008D27700D11E42 /* AppDelegate.swift in Sources */,
 				31FECEEC200AB07A009991B9 /* InstagramAPI.swift in Sources */,
 				3153B5BD200D38B500472643 /* InstagramUser.swift in Sources */,
+				31FE1D70200FA49E008D6351 /* AccountsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

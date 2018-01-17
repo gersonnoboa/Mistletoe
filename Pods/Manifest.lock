@@ -1,17 +1,19 @@
 PODS:
-  - Kingfisher (4.6.1)
   - NVActivityIndicatorView (4.1.1):
     - NVActivityIndicatorView/Presenter (= 4.1.1)
   - NVActivityIndicatorView/Presenter (4.1.1)
+  - SDWebImage (4.2.3):
+    - SDWebImage/Core (= 4.2.3)
+  - SDWebImage/Core (4.2.3)
 
 DEPENDENCIES:
-  - Kingfisher (~> 4.0)
   - NVActivityIndicatorView
+  - SDWebImage
 
 SPEC CHECKSUMS:
-  Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
   NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
+  SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
 
-PODFILE CHECKSUM: af9e54662ec06ffe7ac1b299faa6e0f4b4b4bf45
+PODFILE CHECKSUM: edb481717058e754ddd95950a35e0a7d5ffbcc11
 
 COCOAPODS: 1.3.1
