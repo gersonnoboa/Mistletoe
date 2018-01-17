@@ -13,4 +13,5 @@ class InstagramMedia {
     var url: String = ""
     var comments: Int = 0
     var likes: Int = 0
+    var createdTime: String = "0"
 }

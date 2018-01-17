@@ -28,6 +28,7 @@
 		31FE1D74200FB281008D6351 /* FunctionalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D73200FB281008D6351 /* FunctionalHelper.swift */; };
 		31FE1D76200FC70E008D6351 /* InstagramMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D75200FC70E008D6351 /* InstagramMedia.swift */; };
 		31FE1D78200FCAF4008D6351 /* PictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D77200FCAF4008D6351 /* PictureCollectionViewCell.swift */; };
+		31FE1D7A200FE659008D6351 /* InstagramMediaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D79200FE659008D6351 /* InstagramMediaDetailViewController.swift */; };
 		31FECEE6200A873D009991B9 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEE5200A873D009991B9 /* URLSessionProtocol.swift */; };
 		31FECEE8200A8790009991B9 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEE7200A8790009991B9 /* HTTPClient.swift */; };
 		31FECEEA200AABCA009991B9 /* InstagramLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEE9200AABCA009991B9 /* InstagramLoginViewController.swift */; };
@@ -78,6 +79,7 @@
 		31FE1D73200FB281008D6351 /* FunctionalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalHelper.swift; sourceTree = "<group>"; };
 		31FE1D75200FC70E008D6351 /* InstagramMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramMedia.swift; sourceTree = "<group>"; };
 		31FE1D77200FCAF4008D6351 /* PictureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewCell.swift; sourceTree = "<group>"; };
+		31FE1D79200FE659008D6351 /* InstagramMediaDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramMediaDetailViewController.swift; sourceTree = "<group>"; };
 		31FECEE5200A873D009991B9 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		31FECEE7200A8790009991B9 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		31FECEE9200AABCA009991B9 /* InstagramLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramLoginViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				31D4F56F20090D48003EE9BC /* InstagramUserSearchViewController.swift */,
 				31FECEE9200AABCA009991B9 /* InstagramLoginViewController.swift */,
 				31577F89200E9CC100C06A70 /* InstagramUserPhotosViewController.swift */,
+				31FE1D79200FE659008D6351 /* InstagramMediaDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				314564512008D27700D11E42 /* AppDelegate.swift in Sources */,
 				31FECEEC200AB07A009991B9 /* InstagramAPI.swift in Sources */,
 				3153B5BD200D38B500472643 /* InstagramUser.swift in Sources */,
+				31FE1D7A200FE659008D6351 /* InstagramMediaDetailViewController.swift in Sources */,
 				31FE1D70200FA49E008D6351 /* AccountsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

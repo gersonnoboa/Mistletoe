@@ -28,6 +28,7 @@ class AccountsViewController: UIViewController, TintedNavigationBar {
         super.viewDidLoad()
         
         self.title = "Mistletoe";
+        self.standarizeBackButtonItem()
         
         configureLogInStatusView()
     }
@@ -35,8 +36,15 @@ class AccountsViewController: UIViewController, TintedNavigationBar {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         determineLogInStatus()
+        loadAccounts()
+    }
+    
+    func loadAccounts() {
         if let accs = InstagramAccountsHelper.getAccounts() {
-            accounts = accs
+            self.accounts = accs
+        }
+        else{
+            self.accounts = []
         }
         self.tableView.reloadData()
     }
@@ -89,6 +97,8 @@ class AccountsViewController: UIViewController, TintedNavigationBar {
         determineLogInStatus()
         UIHelper.showSuccessAlert(vc: self, message: nil)
         FunctionalHelper.deleteCookies()
+        InstagramAccountsHelper.deleteAccounts()
+        self.loadAccounts()
     }
     
     func showInstagramLoginPrompt() {

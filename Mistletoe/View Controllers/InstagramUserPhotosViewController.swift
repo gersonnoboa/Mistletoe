@@ -26,12 +26,16 @@ class InstagramUserPhotosViewController: UIViewController {
     var user: InstagramUser!
     
     var instagramMedia: [InstagramMedia] = []
+    var presentingMedia: InstagramMedia!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "\(user.username)'s Photos"
+        self.standarizeBackButtonItem()
+        
         setUpViews()
         executeAPIImageFetch()
+        
     }
     
     func setUpViews() {
@@ -46,12 +50,15 @@ class InstagramUserPhotosViewController: UIViewController {
     }
     
     func executeAPIImageFetch() {
+        
+        UIHelper.Loading.show()
         let id = self.user.id
         let token = InstagramAPI.getAccessToken()!
         
         let url = InstagramAPI.userMedia(id: id, token: token)
         self.httpClient.get(url: url) {[weak self] (data, error) in
             UIHelper.executeInMainQueue {
+                UIHelper.Loading.hide()
                 if (error != nil) {
                     UIHelper.showNetworkingError(vc: self, retryBlock: {[weak self] () -> (Void) in
                         self?.executeAPIImageFetch()
@@ -76,6 +83,13 @@ class InstagramUserPhotosViewController: UIViewController {
             let lowResolution = images["low_resolution"] as! [String:Any]
             media.url = lowResolution["url"] as! String
             
+            let comments = item["comments"] as! [String:Any]
+            media.comments = comments["count"] as! Int
+            
+            let likes = item["likes"] as! [String:Any]
+            media.likes = likes["count"] as! Int
+            
+            media.createdTime = item["created_time"] as! String
             self.instagramMedia.append(media)
         }
         
@@ -87,6 +101,13 @@ class InstagramUserPhotosViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == SegueIdentifiers.InstagramUserPhotosToInstagramMediaDetail.rawValue) {
+            let vc = segue.destination as! InstagramMediaDetailViewController
+            vc.instagramMedia = self.presentingMedia
+        }
     }
 
 }
@@ -122,5 +143,12 @@ extension InstagramUserPhotosViewController : UICollectionViewDelegateFlowLayout
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return self.cellPadding + 1
+    }
+}
+
+extension InstagramUserPhotosViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.presentingMedia = self.instagramMedia[indexPath.row]
+        self.performSegue(withIdentifier: SegueIdentifiers.InstagramUserPhotosToInstagramMediaDetail.rawValue, sender: nil)
     }
 }

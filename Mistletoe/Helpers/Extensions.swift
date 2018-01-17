@@ -17,3 +17,11 @@ extension TintedNavigationBar where Self: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.red
     }
 }
+
+extension UIViewController {
+    func standarizeBackButtonItem() {
+        let button = UIBarButtonItem()
+        button.title = "Back"
+        self.navigationItem.backBarButtonItem = button
+    }
+}

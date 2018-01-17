@@ -21,6 +21,7 @@ class InstagramUserSearchViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Add new account"
+        self.standarizeBackButtonItem()
         
         self.createSearchController()
     }
@@ -55,7 +56,6 @@ class InstagramUserSearchViewController: UIViewController{
         
         let token = InstagramAPI.getAccessToken()!
         let url = InstagramAPI.userSearch(query: query, token: token)
-        
         self.httpClient.get(url: url) { [weak self] (data, error) in
             
             UIHelper.executeInMainQueue {

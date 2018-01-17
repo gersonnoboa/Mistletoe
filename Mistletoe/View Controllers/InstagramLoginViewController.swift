@@ -14,6 +14,8 @@ class InstagramLoginViewController: UIViewController {
 
     @IBOutlet weak var webView: WKWebView!
     
+    var isSuccessful = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +23,9 @@ class InstagramLoginViewController: UIViewController {
         loadWebView()
         definesPresentationContext = true
         // Do any additional setup after loading the view.
+        self.title = "Log in to Instagram"
+        self.standarizeBackButtonItem()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,6 +76,7 @@ extension InstagramLoginViewController: WKNavigationDelegate {
                 let authToken = stringURL[range.upperBound...]
                 
                 InstagramAPI.setAccessToken(token: String(authToken))
+                self.isSuccessful = true
                 UIHelper.showSuccessAlert(vc: self, message: nil, successBlock: { [weak self] in
                     self?.navigationController?.popViewController(animated: true)
                 })
@@ -82,5 +88,13 @@ extension InstagramLoginViewController: WKNavigationDelegate {
         else{
             decisionHandler(.allow)
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        if (!self.isSuccessful) {
+            FunctionalHelper.deleteCookies()
+        }
+        super.viewWillDisappear(animated)
     }
 }

@@ -19,7 +19,7 @@ struct InstagramAPI {
 extension InstagramAPI {
     static func userSearch(query: String, token: String) -> String {
         let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)!
-        return "https://api.instagram.com/v1/users/search?q=\(encodedQuery)&access_token=\(token)&count=10"
+        return "https://api.instagram.com/v1/users/search?q=\(encodedQuery)&access_token=\(token)"
     }
     
     static func userMedia(id: String, token: String) -> String{

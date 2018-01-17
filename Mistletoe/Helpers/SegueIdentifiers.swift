@@ -13,4 +13,5 @@ enum SegueIdentifiers: String {
     case AccountsToInstagramLogin
     case AccountsToInstagramUserPhotos
     case InstagramUserSearchToInstagramUserPhotos
+    case InstagramUserPhotosToInstagramMediaDetail
 }
