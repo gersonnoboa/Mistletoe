@@ -17,4 +17,3 @@ extension TintedNavigationBar where Self: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.red
     }
 }
-

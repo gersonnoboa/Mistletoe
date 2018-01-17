@@ -23,8 +23,11 @@
 		31D4F56C2008DCC7003EE9BC /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4F56B2008DCC7003EE9BC /* UserDefaultsHelper.swift */; };
 		31D4F56E20090CFE003EE9BC /* SegueIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4F56D20090CFE003EE9BC /* SegueIdentifiers.swift */; };
 		31D4F57020090D48003EE9BC /* InstagramUserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4F56F20090D48003EE9BC /* InstagramUserSearchViewController.swift */; };
-		31D4F57220090F72003EE9BC /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4F57120090F72003EE9BC /* File.swift */; };
+		31D4F57220090F72003EE9BC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4F57120090F72003EE9BC /* Extensions.swift */; };
 		31FE1D70200FA49E008D6351 /* AccountsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D6E200FA49E008D6351 /* AccountsTableViewCell.swift */; };
+		31FE1D74200FB281008D6351 /* FunctionalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D73200FB281008D6351 /* FunctionalHelper.swift */; };
+		31FE1D76200FC70E008D6351 /* InstagramMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D75200FC70E008D6351 /* InstagramMedia.swift */; };
+		31FE1D78200FCAF4008D6351 /* PictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D77200FCAF4008D6351 /* PictureCollectionViewCell.swift */; };
 		31FECEE6200A873D009991B9 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEE5200A873D009991B9 /* URLSessionProtocol.swift */; };
 		31FECEE8200A8790009991B9 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEE7200A8790009991B9 /* HTTPClient.swift */; };
 		31FECEEA200AABCA009991B9 /* InstagramLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEE9200AABCA009991B9 /* InstagramLoginViewController.swift */; };
@@ -70,8 +73,11 @@
 		31D4F56B2008DCC7003EE9BC /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		31D4F56D20090CFE003EE9BC /* SegueIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifiers.swift; sourceTree = "<group>"; };
 		31D4F56F20090D48003EE9BC /* InstagramUserSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramUserSearchViewController.swift; sourceTree = "<group>"; };
-		31D4F57120090F72003EE9BC /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		31D4F57120090F72003EE9BC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		31FE1D6E200FA49E008D6351 /* AccountsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsTableViewCell.swift; sourceTree = "<group>"; };
+		31FE1D73200FB281008D6351 /* FunctionalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalHelper.swift; sourceTree = "<group>"; };
+		31FE1D75200FC70E008D6351 /* InstagramMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramMedia.swift; sourceTree = "<group>"; };
+		31FE1D77200FCAF4008D6351 /* PictureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewCell.swift; sourceTree = "<group>"; };
 		31FECEE5200A873D009991B9 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		31FECEE7200A8790009991B9 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		31FECEE9200AABCA009991B9 /* InstagramLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramLoginViewController.swift; sourceTree = "<group>"; };
@@ -151,8 +157,6 @@
 				314564572008D27700D11E42 /* Assets.xcassets */,
 				314564592008D27700D11E42 /* LaunchScreen.storyboard */,
 				3145645C2008D27700D11E42 /* Info.plist */,
-				31D4F56D20090CFE003EE9BC /* SegueIdentifiers.swift */,
-				31D4F57120090F72003EE9BC /* File.swift */,
 			);
 			path = Mistletoe;
 			sourceTree = "<group>";
@@ -196,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				3153B5BC200D38B500472643 /* InstagramUser.swift */,
+				31FE1D75200FC70E008D6351 /* InstagramMedia.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				31FE1D6E200FA49E008D6351 /* AccountsTableViewCell.swift */,
+				31FE1D77200FCAF4008D6351 /* PictureCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -231,8 +237,11 @@
 		31FECEEF200B2CB9009991B9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				31D4F56D20090CFE003EE9BC /* SegueIdentifiers.swift */,
+				31D4F57120090F72003EE9BC /* Extensions.swift */,
 				31D4F56B2008DCC7003EE9BC /* UserDefaultsHelper.swift */,
 				31FECEED200B2C8C009991B9 /* UIHelper.swift */,
+				31FE1D73200FB281008D6351 /* FunctionalHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -559,9 +568,12 @@
 				31D4F56E20090CFE003EE9BC /* SegueIdentifiers.swift in Sources */,
 				3153B5B8200D328500472643 /* InstagramAccountsHelper.swift in Sources */,
 				31FECEE8200A8790009991B9 /* HTTPClient.swift in Sources */,
+				31FE1D76200FC70E008D6351 /* InstagramMedia.swift in Sources */,
+				31FE1D74200FB281008D6351 /* FunctionalHelper.swift in Sources */,
 				31FECEEE200B2C8C009991B9 /* UIHelper.swift in Sources */,
 				31577F8A200E9CC100C06A70 /* InstagramUserPhotosViewController.swift in Sources */,
-				31D4F57220090F72003EE9BC /* File.swift in Sources */,
+				31D4F57220090F72003EE9BC /* Extensions.swift in Sources */,
+				31FE1D78200FCAF4008D6351 /* PictureCollectionViewCell.swift in Sources */,
 				31D4F57020090D48003EE9BC /* InstagramUserSearchViewController.swift in Sources */,
 				31D4F56C2008DCC7003EE9BC /* UserDefaultsHelper.swift in Sources */,
 				31FECEEA200AABCA009991B9 /* InstagramLoginViewController.swift in Sources */,

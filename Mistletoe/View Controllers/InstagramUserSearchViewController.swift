@@ -14,8 +14,9 @@ class InstagramUserSearchViewController: UIViewController{
     
     var searchContoller: UISearchController!
     @IBOutlet weak var tableView: UITableView!
-    
     var instagramUserData: [InstagramUser] = []
+    
+    var presentingInstagramUser: InstagramUser!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,10 +56,15 @@ class InstagramUserSearchViewController: UIViewController{
         let token = InstagramAPI.getAccessToken()!
         let url = InstagramAPI.userSearch(query: query, token: token)
         
-        httpClient.get(url: url) { [weak self] (data, error) in
+        self.httpClient.get(url: url) { [weak self] (data, error) in
             
             UIHelper.executeInMainQueue {
-                self?.jsonParsing(data: data)
+                if (error != nil) {
+                    UIHelper.showNetworkingError(vc: self, retryBlock: nil)
+                }
+                else {
+                    self?.jsonParsing(data: data)
+                }
             }
         }
     }
@@ -108,19 +114,25 @@ class InstagramUserSearchViewController: UIViewController{
     func decideUserSelectNavigation(user: InstagramUser) {
         let alert = UIAlertController(title: "Success", message: "User added successfully. What would you like to do next?", preferredStyle: UIAlertControllerStyle.alert)
         let viewPictures = UIAlertAction(title: "View user's pictures", style: UIAlertActionStyle.default) { [weak self] (action) in
-            
+            self?.presentingInstagramUser = user
+            self?.performSegue(withIdentifier: SegueIdentifiers.InstagramUserSearchToInstagramUserPhotos.rawValue, sender: nil)
         }
         alert.addAction(viewPictures)
         
-        let searchForAnotherUser = UIAlertAction(title: "Search for another user", style: UIAlertActionStyle.default) { [weak self] (action) in
-            
-        }
+        let searchForAnotherUser = UIAlertAction(title: "Search for another user", style: UIAlertActionStyle.default, handler: nil)
         alert.addAction(searchForAnotherUser)
         let goToTheHomeScreen = UIAlertAction(title: "Go to the home screen", style: UIAlertActionStyle.cancel) { [weak self](action) in
             self?.navigationController?.popViewController(animated: true)
         }
         alert.addAction(goToTheHomeScreen)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == SegueIdentifiers.InstagramUserSearchToInstagramUserPhotos.rawValue) {
+            let vc = segue.destination as! InstagramUserPhotosViewController
+            vc.user = self.presentingInstagramUser
+        }
     }
     
 }
@@ -147,14 +159,26 @@ extension InstagramUserSearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "TableCell") as UITableViewCell?
         if (cell == nil){
-            cell = UITableViewCell(style: .default, reuseIdentifier: "TableCell")
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "TableCell")
         }
-        cell!.textLabel?.text = self.instagramUserData[indexPath.row].username
+        
+        let user = self.instagramUserData[indexPath.row]
+        cell!.textLabel?.text = user.username
+        cell!.detailTextLabel?.text = user.fullName
         return cell!
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.instagramUserData.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if (self.instagramUserData.count == 0) {
+            return "No results"
+        }
+        else {
+            return "Results"
+        }
     }
 }
 

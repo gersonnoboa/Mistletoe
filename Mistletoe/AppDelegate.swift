@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         
         //InstagramAccountsHelper.deleteAccounts()
-        SDImageCache.shared().clearMemory()
-        SDImageCache.shared().clearDisk()
+        //SDImageCache.shared().clearMemory()
+        //SDImageCache.shared().clearDisk()
         
         // Override point for customization after application launch.
         return true

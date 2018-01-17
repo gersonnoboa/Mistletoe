@@ -22,6 +22,10 @@ extension InstagramAPI {
         return "https://api.instagram.com/v1/users/search?q=\(encodedQuery)&access_token=\(token)&count=10"
     }
     
+    static func userMedia(id: String, token: String) -> String{
+        return "https://api.instagram.com/v1/users/\(id)/media/recent/?access_token=\(token)"
+    }
+    
     static func getAccessToken() -> String? {
         return UserDefaultsHelper.getString(key: accessTokenIdentifier)
     }

@@ -27,27 +27,46 @@ class UIHelper {
         }
     }
     
-    static func showNetworkingError(vc viewController: UIViewController, retryBlock: (() -> (Void))?) {
+    static func showNetworkingError(vc viewController: UIViewController?, retryBlock: (() -> (Void))?) {
         showNetworkingError(vc: viewController, shouldPop: false, retryBlock: retryBlock)
     }
     
-    static func showNetworkingError(vc viewController: UIViewController, shouldPop: Bool?, retryBlock: (() -> (Void))?) {
-        let alert = UIAlertController(title: "Error", message: "An error has occurred. Do you want to retry?", preferredStyle: UIAlertControllerStyle.alert)
+    static func showNetworkingError(vc viewController: UIViewController?, shouldPop: Bool?, retryBlock: (() -> (Void))?) {
         
-        let cancelButton = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) { (action) in
-            if let _ = shouldPop {
-                if (shouldPop!) {
-                    viewController.navigationController?.popViewController(animated: true)
+        guard let viewController = viewController else { return  }
+        
+        var message = "An error has occurred. "
+        
+        let shouldRetry = retryBlock != nil
+        
+        if shouldRetry {
+            message += "Do you want to retry?"
+        }
+        else{
+            message += "Please try again later."
+        }
+        
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        if shouldRetry {
+            let cancelButton = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) { (action) in
+                if let _ = shouldPop {
+                    if (shouldPop!) {
+                        viewController.navigationController?.popViewController(animated: true)
+                    }
                 }
-            }
-        };
-        alert.addAction(cancelButton)
-        let okButton = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) { (action) in
-            if let _ = retryBlock {
+            };
+            alert.addAction(cancelButton)
+            let okButton = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) { (action) in
                 retryBlock!();
             }
+            alert.addAction(okButton)
         }
-        alert.addAction(okButton)
+        else {
+            let okayButton = UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil)
+            alert.addAction(okayButton)
+        }
+        
         viewController.present(alert, animated: true, completion: nil)
     }
     

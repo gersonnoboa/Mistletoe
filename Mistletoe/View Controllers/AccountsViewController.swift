@@ -145,7 +145,7 @@ extension AccountsViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: self.accountsCellIdentifier) as! AccountsTableViewCell
             let user = accounts[indexPath.row]
             cell.title?.text = user.username;
-            cell.subtitle?.text = "No new content"
+            cell.subtitle?.text = user.fullName
             
             let url = URL(string: user.profilePicture)
             cell.profilePicture?.sd_setImage(with: url, placeholderImage: UIImage(named: "Placeholder"))
@@ -155,11 +155,25 @@ extension AccountsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
+        if section == 0 && self.accounts.count > 0 {
             return "Accounts you are following"
+        }
+        else if section == 1 {
+            return "Operations"
         }
         
         return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 && self.accounts.count == 0 {
+            return 1
+        }
+        return 56
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1
     }
 }
 
