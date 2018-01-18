@@ -36,6 +36,7 @@ class InstagramUserPhotosViewControllerTests: XCTestCase {
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        self.user = nil
         self.viewController = nil
         self.storyboard = nil
         super.tearDown()
