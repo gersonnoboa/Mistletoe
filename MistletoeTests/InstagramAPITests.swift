@@ -22,11 +22,34 @@ class InstagramAPITests: XCTestCase {
     }
     
     func testSetCorrectAccessToken() {
+        let accessToken = "5"
+        InstagramAPI.setAccessToken(token: accessToken)
+        
+        XCTAssertEqual(UserDefaultsHelper.getString(key: InstagramAPI.accessTokenIdentifier), accessToken)
         
     }
     
     func testGetCorrectAccessToken() {
+        let accessToken = "5"
+        InstagramAPI.setAccessToken(token: accessToken)
         
+        XCTAssertEqual(InstagramAPI.getAccessToken(), accessToken)
+    }
+    
+    func testUserSearchURL() {
+        let encodedQuery = "a"
+        let token = "5"
+        let url = "https://api.instagram.com/v1/users/search?q=\(encodedQuery)&access_token=\(token)"
+        
+        XCTAssertEqual(InstagramAPI.userSearch(query: encodedQuery, token: token), url)
+    }
+    
+    func testUserMediaURL() {
+        let id = "1"
+        let token = "5"
+        let url = "https://api.instagram.com/v1/users/\(id)/media/recent/?access_token=\(token)"
+        
+        XCTAssertEqual(InstagramAPI.userMedia(id: id, token: token), url)
     }
     
 }
