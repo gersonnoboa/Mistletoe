@@ -18,7 +18,7 @@ class AccountsViewControllerTests: XCTestCase {
         super.setUp()
         self.storyboard = UIStoryboard(name: "Main", bundle: nil)
         self.viewController = self.storyboard.instantiateViewController(withIdentifier: "AccountsViewController") as! AccountsViewController
-        let _ = viewController.view
+        let _ = self.viewController.view
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     

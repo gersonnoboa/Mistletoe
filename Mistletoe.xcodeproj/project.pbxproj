@@ -24,12 +24,13 @@
 		31D4F56E20090CFE003EE9BC /* SegueIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4F56D20090CFE003EE9BC /* SegueIdentifiers.swift */; };
 		31D4F57020090D48003EE9BC /* InstagramUserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4F56F20090D48003EE9BC /* InstagramUserSearchViewController.swift */; };
 		31D4F57220090F72003EE9BC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4F57120090F72003EE9BC /* Extensions.swift */; };
+		31EE600620108ADB008F1851 /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = 31EE600520108ADB008F1851 /* search.json */; };
 		31FE1D70200FA49E008D6351 /* AccountsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D6E200FA49E008D6351 /* AccountsTableViewCell.swift */; };
 		31FE1D74200FB281008D6351 /* FunctionalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D73200FB281008D6351 /* FunctionalHelper.swift */; };
 		31FE1D76200FC70E008D6351 /* InstagramMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D75200FC70E008D6351 /* InstagramMedia.swift */; };
 		31FE1D78200FCAF4008D6351 /* PictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D77200FCAF4008D6351 /* PictureCollectionViewCell.swift */; };
 		31FE1D7A200FE659008D6351 /* InstagramMediaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D79200FE659008D6351 /* InstagramMediaDetailViewController.swift */; };
-		31FE1D7C20108780008D6351 /* InstagramUserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D7B20108780008D6351 /* InstagramUserSearchViewController.swift */; };
+		31FE1D7C20108780008D6351 /* InstagramUserSearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D7B20108780008D6351 /* InstagramUserSearchViewControllerTests.swift */; };
 		31FECEE6200A873D009991B9 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEE5200A873D009991B9 /* URLSessionProtocol.swift */; };
 		31FECEE8200A8790009991B9 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEE7200A8790009991B9 /* HTTPClient.swift */; };
 		31FECEEA200AABCA009991B9 /* InstagramLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEE9200AABCA009991B9 /* InstagramLoginViewController.swift */; };
@@ -76,12 +77,13 @@
 		31D4F56D20090CFE003EE9BC /* SegueIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifiers.swift; sourceTree = "<group>"; };
 		31D4F56F20090D48003EE9BC /* InstagramUserSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramUserSearchViewController.swift; sourceTree = "<group>"; };
 		31D4F57120090F72003EE9BC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		31EE600520108ADB008F1851 /* search.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
 		31FE1D6E200FA49E008D6351 /* AccountsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsTableViewCell.swift; sourceTree = "<group>"; };
 		31FE1D73200FB281008D6351 /* FunctionalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalHelper.swift; sourceTree = "<group>"; };
 		31FE1D75200FC70E008D6351 /* InstagramMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramMedia.swift; sourceTree = "<group>"; };
 		31FE1D77200FCAF4008D6351 /* PictureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewCell.swift; sourceTree = "<group>"; };
 		31FE1D79200FE659008D6351 /* InstagramMediaDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramMediaDetailViewController.swift; sourceTree = "<group>"; };
-		31FE1D7B20108780008D6351 /* InstagramUserSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramUserSearchViewController.swift; sourceTree = "<group>"; };
+		31FE1D7B20108780008D6351 /* InstagramUserSearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramUserSearchViewControllerTests.swift; sourceTree = "<group>"; };
 		31FECEE5200A873D009991B9 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		31FECEE7200A8790009991B9 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		31FECEE9200AABCA009991B9 /* InstagramLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramLoginViewController.swift; sourceTree = "<group>"; };
@@ -170,7 +172,8 @@
 			children = (
 				314564652008D27800D11E42 /* AccountsViewControllerTests.swift */,
 				314564672008D27800D11E42 /* Info.plist */,
-				31FE1D7B20108780008D6351 /* InstagramUserSearchViewController.swift */,
+				31FE1D7B20108780008D6351 /* InstagramUserSearchViewControllerTests.swift */,
+				31EE600520108ADB008F1851 /* search.json */,
 			);
 			path = MistletoeTests;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31EE600620108ADB008F1851 /* search.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,7 +600,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31FE1D7C20108780008D6351 /* InstagramUserSearchViewController.swift in Sources */,
+				31FE1D7C20108780008D6351 /* InstagramUserSearchViewControllerTests.swift in Sources */,
 				314564662008D27800D11E42 /* AccountsViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
