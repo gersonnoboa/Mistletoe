@@ -25,6 +25,7 @@
 		31D4F57020090D48003EE9BC /* InstagramUserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4F56F20090D48003EE9BC /* InstagramUserSearchViewController.swift */; };
 		31D4F57220090F72003EE9BC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4F57120090F72003EE9BC /* Extensions.swift */; };
 		31EE600620108ADB008F1851 /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = 31EE600520108ADB008F1851 /* search.json */; };
+		31EE600820108C4F008F1851 /* InstagramLoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EE600720108C4F008F1851 /* InstagramLoginViewControllerTests.swift */; };
 		31FE1D70200FA49E008D6351 /* AccountsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D6E200FA49E008D6351 /* AccountsTableViewCell.swift */; };
 		31FE1D74200FB281008D6351 /* FunctionalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D73200FB281008D6351 /* FunctionalHelper.swift */; };
 		31FE1D76200FC70E008D6351 /* InstagramMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D75200FC70E008D6351 /* InstagramMedia.swift */; };
@@ -78,6 +79,7 @@
 		31D4F56F20090D48003EE9BC /* InstagramUserSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramUserSearchViewController.swift; sourceTree = "<group>"; };
 		31D4F57120090F72003EE9BC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		31EE600520108ADB008F1851 /* search.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
+		31EE600720108C4F008F1851 /* InstagramLoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramLoginViewControllerTests.swift; sourceTree = "<group>"; };
 		31FE1D6E200FA49E008D6351 /* AccountsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsTableViewCell.swift; sourceTree = "<group>"; };
 		31FE1D73200FB281008D6351 /* FunctionalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalHelper.swift; sourceTree = "<group>"; };
 		31FE1D75200FC70E008D6351 /* InstagramMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramMedia.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				314564672008D27800D11E42 /* Info.plist */,
 				31FE1D7B20108780008D6351 /* InstagramUserSearchViewControllerTests.swift */,
 				31EE600520108ADB008F1851 /* search.json */,
+				31EE600720108C4F008F1851 /* InstagramLoginViewControllerTests.swift */,
 			);
 			path = MistletoeTests;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31EE600820108C4F008F1851 /* InstagramLoginViewControllerTests.swift in Sources */,
 				31FE1D7C20108780008D6351 /* InstagramUserSearchViewControllerTests.swift in Sources */,
 				314564662008D27800D11E42 /* AccountsViewControllerTests.swift in Sources */,
 			);

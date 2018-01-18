@@ -71,27 +71,31 @@ extension InstagramLoginViewController: WKNavigationDelegate {
         
         if let url = navigationAction.request.url {
             let stringURL = url.absoluteString
-            if stringURL.hasPrefix(InstagramAPI.redirectURL){
-                UIHelper.Loading.hide()
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                webView.stopLoading()
-                webView.navigationDelegate = nil
-                decisionHandler(.cancel)
-                let range: Range<String.Index> = stringURL.range(of: "#access_token=")!
-                let authToken = stringURL[range.upperBound...]
-                
-                InstagramAPI.setAccessToken(token: String(authToken))
-                self.isSuccessful = true
-                UIHelper.Alert.success(vc: self, message: nil, successBlock: { [weak self] in
-                    self?.navigationController?.popViewController(animated: true)
-                })
-            }
-            else {
-                decisionHandler(.allow);
-            }
+            setAccessToken(withURL: stringURL, decisionHandler: decisionHandler)
         }
         else{
             decisionHandler(.allow)
+        }
+    }
+    
+    func setAccessToken(withURL stringURL: String, decisionHandler: ((WKNavigationActionPolicy) -> Void)) {
+        if stringURL.hasPrefix(InstagramAPI.redirectURL){
+            UIHelper.Loading.hide()
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            webView.stopLoading()
+            webView.navigationDelegate = nil
+            decisionHandler(.cancel)
+            let range: Range<String.Index> = stringURL.range(of: "#access_token=")!
+            let authToken = stringURL[range.upperBound...]
+            
+            InstagramAPI.setAccessToken(token: String(authToken))
+            self.isSuccessful = true
+            UIHelper.Alert.success(vc: self, message: nil, successBlock: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            })
+        }
+        else {
+            decisionHandler(.allow);
         }
     }
     
