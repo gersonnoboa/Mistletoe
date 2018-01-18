@@ -102,7 +102,7 @@ class AccountsViewController: UIViewController, TintedNavigationBar {
     func executeLogOutOfInstagram() {
         InstagramAPI.setAccessToken(token: nil)
         self.determineLogInStatus()
-        UIHelper.Alert.success(vc: self, message: nil)
+        //UIHelper.Alert.success(vc: self, message: nil)
         FunctionalHelper.deleteCookies()
         InstagramAccountsHelper.deleteAccounts()
         self.loadAccounts()
@@ -153,7 +153,7 @@ class AccountsViewController: UIViewController, TintedNavigationBar {
         self.accounts.remove(at: index)
         InstagramAccountsHelper.setAccounts(accounts: self.accounts)
         loadAccounts()
-        UIHelper.Alert.success(vc: self, message: nil)
+        //UIHelper.Alert.success(vc: self, message: nil)
     }
     
 }

@@ -10,6 +10,7 @@ import UIKit
 
 class UserDefaultsHelper: NSObject {
     
+    //not used, will not be tested
     static func countStringArray(key: String) -> Int {
         let array = getStringArray(key: key)
         guard let a = array else { return 0 }
@@ -20,6 +21,7 @@ class UserDefaultsHelper: NSObject {
         let defaults = UserDefaults.standard
         defaults.set(array, forKey: key)
     }
+    
     static func addStringInArray(key: String, string: String) {
         let _ = addStringInArray(key: key, string: string, shouldVerifyUniqueness: false)
     }
@@ -40,7 +42,6 @@ class UserDefaultsHelper: NSObject {
         else {
             return false;
         }
-        
     }
     
     static func getStringArray(key: String) -> [String]? {
@@ -48,6 +49,8 @@ class UserDefaultsHelper: NSObject {
         let array = defaults.stringArray(forKey: key)
         return array
     }
+    
+    //end of not used
     
     static func getString(key: String) -> String? {
         let defaults = UserDefaults.standard

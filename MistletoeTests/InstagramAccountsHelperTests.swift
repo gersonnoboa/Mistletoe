@@ -7,29 +7,52 @@
 //
 
 import XCTest
+@testable import Mistletoe
 
 class InstagramAccountsHelperTests: XCTestCase {
     
+    var instagramUser: InstagramUser!
+    
     override func setUp() {
         super.setUp()
+        self.instagramUser = InstagramUser()
+        instagramUser.id = "gersonnoboa"
+        InstagramAccountsHelper.deleteAccounts()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
+        InstagramAccountsHelper.deleteAccounts()
+        self.instagramUser = nil
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testGetAccounts(){
+        
+        let array = [self.instagramUser]
+        UserDefaultsHelper.setObjectArray(key: InstagramAccountsHelper.accountsIdentifier, array: (array as! [NSCoding]))
+        
+        let obtained = InstagramAccountsHelper.getAccounts()![0]
+        XCTAssertEqual(self.instagramUser.id, obtained.id)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testAddAccounts() {
+        XCTAssertTrue(InstagramAccountsHelper.addAccount(account: self.instagramUser))
+        XCTAssertEqual(InstagramAccountsHelper.getAccounts()!.count, 1)
+        
+        let secondInstagramUser = InstagramUser()
+        secondInstagramUser.id = "masamarillo"
+        XCTAssertTrue(InstagramAccountsHelper.addAccount(account: secondInstagramUser))
+        XCTAssertEqual(InstagramAccountsHelper.getAccounts()!.count, 2)
+    }
+    
+    func testDeleteAccounts(){
+        XCTAssertTrue(InstagramAccountsHelper.addAccount(account: self.instagramUser))
+        XCTAssertEqual(InstagramAccountsHelper.getAccounts()!.count, 1)
+        
+        InstagramAccountsHelper.deleteAccounts()
+        XCTAssertNil(InstagramAccountsHelper.getAccounts())
     }
     
 }
