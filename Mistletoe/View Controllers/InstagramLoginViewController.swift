@@ -39,6 +39,7 @@ class InstagramLoginViewController: UIViewController {
         let request = URLRequest(url: url!)
         self.webView.load(request)
         UIHelper.Loading.show()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
     }
 
@@ -47,20 +48,23 @@ class InstagramLoginViewController: UIViewController {
 extension InstagramLoginViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         UIHelper.Loading.hide()
-        UIHelper.showNetworkingError(vc: self, shouldPop: true) { [weak self] () -> (Void) in
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        UIHelper.Alert.error(vc: self, shouldPop: true) { [weak self] () -> (Void) in
             self?.loadWebView()
         }
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         UIHelper.Loading.hide()
-        UIHelper.showNetworkingError(vc: self, shouldPop: true) { [weak self] () -> (Void) in
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        UIHelper.Alert.error(vc: self, shouldPop: true) { [weak self] () -> (Void) in
             self?.loadWebView()
         }
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         UIHelper.Loading.hide()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
@@ -69,6 +73,7 @@ extension InstagramLoginViewController: WKNavigationDelegate {
             let stringURL = url.absoluteString
             if stringURL.hasPrefix(InstagramAPI.redirectURL){
                 UIHelper.Loading.hide()
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 webView.stopLoading()
                 webView.navigationDelegate = nil
                 decisionHandler(.cancel)
@@ -77,7 +82,7 @@ extension InstagramLoginViewController: WKNavigationDelegate {
                 
                 InstagramAPI.setAccessToken(token: String(authToken))
                 self.isSuccessful = true
-                UIHelper.showSuccessAlert(vc: self, message: nil, successBlock: { [weak self] in
+                UIHelper.Alert.success(vc: self, message: nil, successBlock: { [weak self] in
                     self?.navigationController?.popViewController(animated: true)
                 })
             }
@@ -90,11 +95,16 @@ extension InstagramLoginViewController: WKNavigationDelegate {
         }
     }
     
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         
         if (!self.isSuccessful) {
             FunctionalHelper.deleteCookies()
         }
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         super.viewWillDisappear(animated)
     }
 }

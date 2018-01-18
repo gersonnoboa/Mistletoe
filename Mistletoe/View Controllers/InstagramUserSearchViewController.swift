@@ -108,7 +108,7 @@ class InstagramUserSearchViewController: UIViewController{
     }
     
     func displayDuplicationError(user: InstagramUser) {
-        UIHelper.showAlert(vc: self, title: "Error", message: "User \(user.username) has already been added")
+        UIHelper.Alert.show(vc: self, title: "Error", message: "User \(user.username) has already been added")
     }
     
     func decideUserSelectNavigation(user: InstagramUser) {
@@ -119,7 +119,11 @@ class InstagramUserSearchViewController: UIViewController{
         }
         alert.addAction(viewPictures)
         
-        let searchForAnotherUser = UIAlertAction(title: "Search for another user", style: UIAlertActionStyle.default, handler: nil)
+        let searchForAnotherUser = UIAlertAction(title: "Search for another user", style: UIAlertActionStyle.default) { [weak self] (action) in
+            self?.searchContoller.searchBar.text = ""
+            self?.searchContoller.searchBar.becomeFirstResponder()
+        }
+        
         alert.addAction(searchForAnotherUser)
         let goToTheHomeScreen = UIAlertAction(title: "Go to the home screen", style: UIAlertActionStyle.cancel) { [weak self](action) in
             self?.navigationController?.popViewController(animated: true)

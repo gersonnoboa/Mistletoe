@@ -36,6 +36,10 @@ extension InstagramAccountsHelper {
     }
     
     static func deleteAccounts() {
-        UserDefaultsHelper.setObjectArray(key: accountsIdentifier, array: nil)
+        setAccounts(accounts: nil)
+    }
+    
+    static func setAccounts(accounts: [NSCoding]?) {
+        UserDefaultsHelper.setObjectArray(key: accountsIdentifier, array: accounts)
     }
 }

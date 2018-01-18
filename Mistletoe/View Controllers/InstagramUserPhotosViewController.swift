@@ -60,7 +60,7 @@ class InstagramUserPhotosViewController: UIViewController {
             UIHelper.executeInMainQueue {
                 UIHelper.Loading.hide()
                 if (error != nil) {
-                    UIHelper.showNetworkingError(vc: self, retryBlock: {[weak self] () -> (Void) in
+                    UIHelper.Alert.error(vc: self, retryBlock: {[weak self] () -> (Void) in
                         self?.executeAPIImageFetch()
                     })
                 }

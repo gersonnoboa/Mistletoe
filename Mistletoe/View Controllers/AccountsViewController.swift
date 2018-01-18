@@ -93,12 +93,16 @@ class AccountsViewController: UIViewController, TintedNavigationBar {
     }
     
     func logOutOfInstagram() {
-        InstagramAPI.setAccessToken(token: nil)
-        determineLogInStatus()
-        UIHelper.showSuccessAlert(vc: self, message: nil)
-        FunctionalHelper.deleteCookies()
-        InstagramAccountsHelper.deleteAccounts()
-        self.loadAccounts()
+        
+        UIHelper.Alert.confirmation(vc: self, message: "Are you sure you want to log out?") { [weak self] in
+            InstagramAPI.setAccessToken(token: nil)
+            self?.determineLogInStatus()
+            UIHelper.Alert.success(vc: self, message: nil)
+            FunctionalHelper.deleteCookies()
+            InstagramAccountsHelper.deleteAccounts()
+            self?.loadAccounts()
+        }
+        
     }
     
     func showInstagramLoginPrompt() {
@@ -123,6 +127,30 @@ class AccountsViewController: UIViewController, TintedNavigationBar {
             let vc = segue.destination as! InstagramUserPhotosViewController
             vc.user = self.presentingInstagramUser
         }
+    }
+    
+    @IBAction func deleteAccount(_ sender: UIImageView?) {
+        UIHelper.Alert.confirmation(vc: self, message: "Are you sure you want to delete this account?") { [weak self] in
+            self?.executeDeleteAccount(senderTag: sender?.tag)
+        }
+    }
+    
+    func executeDeleteAccount(senderTag: Int?) {
+        guard let tag = senderTag else {
+            UIHelper.Alert.error(vc: self)
+            return
+        }
+        
+        let account = self.accounts[tag]
+        guard let index = self.accounts.index(of: account) else {
+            UIHelper.Alert.error(vc: self)
+            return
+        }
+        
+        self.accounts.remove(at: index)
+        InstagramAccountsHelper.setAccounts(accounts: self.accounts)
+        loadAccounts()
+        UIHelper.Alert.success(vc: self, message: nil)
     }
     
 }
@@ -160,6 +188,8 @@ extension AccountsViewController: UITableViewDataSource {
             
             let url = URL(string: user.profilePicture)
             cell.profilePicture?.sd_setImage(with: url, placeholderImage: UIImage(named: "Placeholder"))
+            cell.delete.tag = indexPath.row
+            
             return cell
         }
         

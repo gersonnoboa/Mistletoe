@@ -13,6 +13,7 @@ class AccountsTableViewCell: UITableViewCell {
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var subtitle: UILabel!
+    @IBOutlet weak var delete: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
