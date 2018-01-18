@@ -32,9 +32,9 @@ class AccountsViewControllerTests: XCTestCase {
     func testLogsOutOfInstagram() {
         let accounts = [InstagramUser()]
         self.viewController.accounts = accounts
-        XCTAssertTrue(self.viewController.accounts.count == 1)
+        XCTAssertEqual(self.viewController.accounts.count, 1)
         self.viewController.executeLogOutOfInstagram()
-        XCTAssertTrue(self.viewController.accounts.count == 0)
+        XCTAssertEqual(self.viewController.accounts.count, 0)
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
@@ -43,7 +43,7 @@ class AccountsViewControllerTests: XCTestCase {
         let accounts = [InstagramUser()]
         InstagramAccountsHelper.setAccounts(accounts: accounts)
         self.viewController.loadAccounts()
-        XCTAssertTrue(self.viewController.tableView.numberOfRows(inSection: 0) == accounts.count)
+        XCTAssertEqual(self.viewController.tableView.numberOfRows(inSection: 0), accounts.count)
     }
     
     func testGetsCorrectLoginStatus() {
@@ -57,16 +57,16 @@ class AccountsViewControllerTests: XCTestCase {
         let accounts = [InstagramUser()]
         self.viewController.accounts = accounts
         self.viewController.executeDeleteAccount(senderTag: Optional(0))
-        XCTAssertTrue(self.viewController.accounts.count == 0)
+        XCTAssertEqual(self.viewController.accounts.count, 0)
     }
     
     func testCorrectStatusView() {
         InstagramAPI.setAccessToken(token: "token")
         self.viewController.determineLogInStatus()
-        XCTAssertTrue(self.viewController.logInStatusView.backgroundColor == UIColor.green)
+        XCTAssertEqual(self.viewController.logInStatusView.backgroundColor, UIColor.green)
         InstagramAPI.setAccessToken(token: nil)
         self.viewController.determineLogInStatus()
-        XCTAssertTrue(self.viewController.logInStatusView.backgroundColor == UIColor.red)
+        XCTAssertEqual(self.viewController.logInStatusView.backgroundColor, UIColor.red)
     }
     
 }

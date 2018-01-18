@@ -36,9 +36,9 @@ class InstagramUserSearchViewControllerTests: XCTestCase {
         let data = [user]
         self.viewController.instagramUserData = data
         self.viewController.tableView.reloadData()
-        XCTAssertTrue(self.viewController.tableView.numberOfRows(inSection: 0) == 1)
+        XCTAssertEqual(self.viewController.tableView.numberOfRows(inSection: 0), 1)
         self.viewController.resetTable(cancelRequests: true)
-        XCTAssertTrue(self.viewController.tableView.numberOfRows(inSection: 0) == 0)
+        XCTAssertEqual(self.viewController.tableView.numberOfRows(inSection: 0), 0)
     }
     
     func testCorrectJSONParsing(){
@@ -46,12 +46,12 @@ class InstagramUserSearchViewControllerTests: XCTestCase {
         let path = bundle.path(forResource: "search", ofType: "json")!
         let jsonData = (try? NSData(contentsOfFile: path) as Data)!
         self.viewController.jsonParsing(data: jsonData)
-        XCTAssertTrue(self.viewController.instagramUserData.count == 1)
+        XCTAssertEqual(self.viewController.instagramUserData.count, 1)
     }
     
     func testCreatesSearchController() {
         self.viewController.createSearchController()
-        XCTAssertTrue(self.viewController.searchContoller != nil)
+        XCTAssertNotNil(self.viewController.searchContoller)
     }
     
 }
