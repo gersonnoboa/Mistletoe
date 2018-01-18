@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,7 +31,7 @@
         <!--Accounts View Controller-->
         <scene sceneID="8zw-g7-FJS">
             <objects>
-                <viewController id="EJC-Ez-3X7" customClass="AccountsViewController" customModule="Mistletoe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EJC-Ez-3X7" customClass="AccountsViewController" customModule="Mistletoe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GvU-ZZ-XKf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,29 +50,25 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rcc-0d-tbe">
                                                     <rect key="frame" x="12" y="11" width="42" height="42"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="42" id="wuY-Tt-zm1"/>
+                                                        <constraint firstAttribute="width" constant="42" id="eug-Nf-BZ5"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovU-m7-Oyu">
-                                                    <rect key="frame" x="62" y="11" width="267" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="pKm-Pi-Teg"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="62" y="11" width="266" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xC-lV-QWt">
-                                                    <rect key="frame" x="62" y="32" width="267" height="21"/>
+                                                    <rect key="frame" x="62" y="32" width="266" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAn-Pb-UyC">
-                                                    <rect key="frame" x="337" y="17" width="26" height="29"/>
+                                                    <rect key="frame" x="336" y="17" width="32" height="29"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="cAn-Pb-UyC" secondAttribute="height" multiplier="26:29" id="Ke5-1q-taa"/>
-                                                        <constraint firstAttribute="width" constant="26" id="PzH-2t-cwk"/>
+                                                        <constraint firstAttribute="width" constant="32" id="AXA-0z-5VF"/>
                                                     </constraints>
                                                     <state key="normal" image="Delete"/>
                                                     <connections>
@@ -82,19 +77,20 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="9xC-lV-QWt" firstAttribute="leading" secondItem="Rcc-0d-tbe" secondAttribute="trailing" constant="8" id="2PG-cL-Oqf"/>
-                                                <constraint firstItem="Rcc-0d-tbe" firstAttribute="top" secondItem="BM7-kw-d3i" secondAttribute="topMargin" id="4Qq-Lp-Zr0"/>
-                                                <constraint firstItem="cAn-Pb-UyC" firstAttribute="leading" secondItem="9xC-lV-QWt" secondAttribute="trailing" constant="8" symbolic="YES" id="7hM-IY-dvo"/>
-                                                <constraint firstItem="9xC-lV-QWt" firstAttribute="top" secondItem="ovU-m7-Oyu" secondAttribute="bottom" id="Kfs-uq-A7i"/>
-                                                <constraint firstItem="Rcc-0d-tbe" firstAttribute="top" secondItem="ovU-m7-Oyu" secondAttribute="top" id="M3C-Xx-6mW"/>
-                                                <constraint firstItem="Rcc-0d-tbe" firstAttribute="bottom" secondItem="9xC-lV-QWt" secondAttribute="bottom" id="SdU-SC-KSq"/>
-                                                <constraint firstItem="ovU-m7-Oyu" firstAttribute="leading" secondItem="Rcc-0d-tbe" secondAttribute="trailing" constant="8" symbolic="YES" id="TuV-4W-wnn"/>
-                                                <constraint firstItem="cAn-Pb-UyC" firstAttribute="leading" secondItem="ovU-m7-Oyu" secondAttribute="trailing" constant="8" symbolic="YES" id="Ytp-mU-o2V"/>
-                                                <constraint firstItem="cAn-Pb-UyC" firstAttribute="top" secondItem="BM7-kw-d3i" secondAttribute="topMargin" constant="6" id="fmI-fj-5Ya"/>
-                                                <constraint firstItem="Rcc-0d-tbe" firstAttribute="leading" secondItem="BM7-kw-d3i" secondAttribute="leadingMargin" constant="-3" id="h9U-BK-K69"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="cAn-Pb-UyC" secondAttribute="trailing" constant="-3" id="ieO-G5-79i"/>
-                                                <constraint firstItem="Rcc-0d-tbe" firstAttribute="bottom" secondItem="BM7-kw-d3i" secondAttribute="bottomMargin" id="jqi-Uw-QdY"/>
-                                                <constraint firstItem="Rcc-0d-tbe" firstAttribute="centerY" secondItem="cAn-Pb-UyC" secondAttribute="centerY" id="k3o-V2-0eA"/>
+                                                <constraint firstAttribute="trailing" secondItem="cAn-Pb-UyC" secondAttribute="trailing" constant="7" id="Akq-B8-6QR"/>
+                                                <constraint firstItem="ovU-m7-Oyu" firstAttribute="leading" secondItem="Rcc-0d-tbe" secondAttribute="trailing" constant="8" id="CFQ-Bc-UVP"/>
+                                                <constraint firstItem="cAn-Pb-UyC" firstAttribute="top" secondItem="BM7-kw-d3i" secondAttribute="top" constant="17" id="F4c-N3-gME"/>
+                                                <constraint firstItem="9xC-lV-QWt" firstAttribute="leading" secondItem="Rcc-0d-tbe" secondAttribute="trailing" constant="8" id="Iwr-uP-Igp"/>
+                                                <constraint firstItem="Rcc-0d-tbe" firstAttribute="leading" secondItem="BM7-kw-d3i" secondAttribute="leading" constant="12" id="K5p-8f-v86"/>
+                                                <constraint firstItem="9xC-lV-QWt" firstAttribute="top" secondItem="ovU-m7-Oyu" secondAttribute="bottom" id="LzN-8S-mFD"/>
+                                                <constraint firstAttribute="bottom" secondItem="cAn-Pb-UyC" secondAttribute="bottom" constant="17.5" id="OIk-0h-Zhd"/>
+                                                <constraint firstItem="9xC-lV-QWt" firstAttribute="top" secondItem="ovU-m7-Oyu" secondAttribute="bottom" id="V7x-vc-itr"/>
+                                                <constraint firstItem="cAn-Pb-UyC" firstAttribute="leading" secondItem="9xC-lV-QWt" secondAttribute="trailing" constant="8" id="bt5-XP-Nza"/>
+                                                <constraint firstItem="ovU-m7-Oyu" firstAttribute="top" secondItem="BM7-kw-d3i" secondAttribute="topMargin" id="eFA-jn-pbG"/>
+                                                <constraint firstItem="Rcc-0d-tbe" firstAttribute="top" secondItem="BM7-kw-d3i" secondAttribute="top" constant="11" id="fYZ-TL-7tw"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9xC-lV-QWt" secondAttribute="bottom" constant="4" id="r54-x9-F6h"/>
+                                                <constraint firstItem="cAn-Pb-UyC" firstAttribute="leading" secondItem="ovU-m7-Oyu" secondAttribute="trailing" constant="8" id="t1O-yv-p71"/>
+                                                <constraint firstAttribute="bottom" secondItem="Rcc-0d-tbe" secondAttribute="bottom" constant="10.5" id="ylX-wN-k16"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -180,7 +176,7 @@
         <!--Instagram Login View Controller-->
         <scene sceneID="8HY-0d-LLb">
             <objects>
-                <viewController id="6ws-8f-BwO" customClass="InstagramLoginViewController" customModule="Mistletoe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InstagramLoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6ws-8f-BwO" customClass="InstagramLoginViewController" customModule="Mistletoe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O4P-YK-L4X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,7 +210,7 @@
         <!--Instagram User Photos View Controller-->
         <scene sceneID="exi-Sn-Jyf">
             <objects>
-                <viewController id="qEX-1W-DO6" customClass="InstagramUserPhotosViewController" customModule="Mistletoe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InstagramUserPhotosViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qEX-1W-DO6" customClass="InstagramUserPhotosViewController" customModule="Mistletoe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ii2-uj-5GU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -354,7 +350,7 @@
         <!--Instagram Media Detail View Controller-->
         <scene sceneID="Hzo-mc-AhH">
             <objects>
-                <viewController id="lur-4K-muZ" customClass="InstagramMediaDetailViewController" customModule="Mistletoe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InstagramMediaDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lur-4K-muZ" customClass="InstagramMediaDetailViewController" customModule="Mistletoe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OMl-EW-EhS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -469,7 +465,7 @@
         <!--Instagram User Search View Controller-->
         <scene sceneID="DwU-SY-Fwd">
             <objects>
-                <viewController id="9LX-nF-ndp" customClass="InstagramUserSearchViewController" customModule="Mistletoe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InstagramUserSearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9LX-nF-ndp" customClass="InstagramUserSearchViewController" customModule="Mistletoe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rX0-Bs-APR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
