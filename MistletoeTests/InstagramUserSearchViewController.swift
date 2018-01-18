@@ -1,15 +1,14 @@
 //
-//  MistletoeTests.swift
+//  InstagramUserSearchViewController.swift
 //  MistletoeTests
 //
-//  Created by Gerson Noboa on 12/1/18.
+//  Created by Gerson Noboa on 18/1/18.
 //  Copyright © 2018 Heavenlapse. All rights reserved.
 //
 
 import XCTest
-@testable import Mistletoe
 
-class MistletoeTests: XCTestCase {
+class InstagramUserSearchViewController: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -22,8 +21,6 @@ class MistletoeTests: XCTestCase {
     }
     
     func testExample() {
-        let viewController = AccountsViewController()
-        
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }

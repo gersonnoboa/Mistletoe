@@ -95,14 +95,17 @@ class AccountsViewController: UIViewController, TintedNavigationBar {
     func logOutOfInstagram() {
         
         UIHelper.Alert.confirmation(vc: self, message: "Are you sure you want to log out?") { [weak self] in
-            InstagramAPI.setAccessToken(token: nil)
-            self?.determineLogInStatus()
-            UIHelper.Alert.success(vc: self, message: nil)
-            FunctionalHelper.deleteCookies()
-            InstagramAccountsHelper.deleteAccounts()
-            self?.loadAccounts()
+            self?.executeLogOutOfInstagram()
         }
-        
+    }
+    
+    func executeLogOutOfInstagram() {
+        InstagramAPI.setAccessToken(token: nil)
+        self.determineLogInStatus()
+        UIHelper.Alert.success(vc: self, message: nil)
+        FunctionalHelper.deleteCookies()
+        InstagramAccountsHelper.deleteAccounts()
+        self.loadAccounts()
     }
     
     func showInstagramLoginPrompt() {

@@ -14,7 +14,7 @@
 		314564562008D27700D11E42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 314564542008D27700D11E42 /* Main.storyboard */; };
 		314564582008D27700D11E42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 314564572008D27700D11E42 /* Assets.xcassets */; };
 		3145645B2008D27700D11E42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 314564592008D27700D11E42 /* LaunchScreen.storyboard */; };
-		314564662008D27800D11E42 /* MistletoeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314564652008D27800D11E42 /* MistletoeTests.swift */; };
+		314564662008D27800D11E42 /* AccountsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314564652008D27800D11E42 /* AccountsViewControllerTests.swift */; };
 		314564712008D27800D11E42 /* MistletoeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314564702008D27800D11E42 /* MistletoeUITests.swift */; };
 		3153B5B8200D328500472643 /* InstagramAccountsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3153B5B7200D328500472643 /* InstagramAccountsHelper.swift */; };
 		3153B5BD200D38B500472643 /* InstagramUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3153B5BC200D38B500472643 /* InstagramUser.swift */; };
@@ -29,6 +29,7 @@
 		31FE1D76200FC70E008D6351 /* InstagramMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D75200FC70E008D6351 /* InstagramMedia.swift */; };
 		31FE1D78200FCAF4008D6351 /* PictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D77200FCAF4008D6351 /* PictureCollectionViewCell.swift */; };
 		31FE1D7A200FE659008D6351 /* InstagramMediaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D79200FE659008D6351 /* InstagramMediaDetailViewController.swift */; };
+		31FE1D7C20108780008D6351 /* InstagramUserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE1D7B20108780008D6351 /* InstagramUserSearchViewController.swift */; };
 		31FECEE6200A873D009991B9 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEE5200A873D009991B9 /* URLSessionProtocol.swift */; };
 		31FECEE8200A8790009991B9 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEE7200A8790009991B9 /* HTTPClient.swift */; };
 		31FECEEA200AABCA009991B9 /* InstagramLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FECEE9200AABCA009991B9 /* InstagramLoginViewController.swift */; };
@@ -62,7 +63,7 @@
 		3145645A2008D27700D11E42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3145645C2008D27700D11E42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		314564612008D27800D11E42 /* MistletoeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MistletoeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		314564652008D27800D11E42 /* MistletoeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistletoeTests.swift; sourceTree = "<group>"; };
+		314564652008D27800D11E42 /* AccountsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewControllerTests.swift; sourceTree = "<group>"; };
 		314564672008D27800D11E42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3145646C2008D27800D11E42 /* MistletoeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MistletoeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		314564702008D27800D11E42 /* MistletoeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistletoeUITests.swift; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		31FE1D75200FC70E008D6351 /* InstagramMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramMedia.swift; sourceTree = "<group>"; };
 		31FE1D77200FCAF4008D6351 /* PictureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewCell.swift; sourceTree = "<group>"; };
 		31FE1D79200FE659008D6351 /* InstagramMediaDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramMediaDetailViewController.swift; sourceTree = "<group>"; };
+		31FE1D7B20108780008D6351 /* InstagramUserSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramUserSearchViewController.swift; sourceTree = "<group>"; };
 		31FECEE5200A873D009991B9 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		31FECEE7200A8790009991B9 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		31FECEE9200AABCA009991B9 /* InstagramLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramLoginViewController.swift; sourceTree = "<group>"; };
@@ -166,8 +168,9 @@
 		314564642008D27800D11E42 /* MistletoeTests */ = {
 			isa = PBXGroup;
 			children = (
-				314564652008D27800D11E42 /* MistletoeTests.swift */,
+				314564652008D27800D11E42 /* AccountsViewControllerTests.swift */,
 				314564672008D27800D11E42 /* Info.plist */,
+				31FE1D7B20108780008D6351 /* InstagramUserSearchViewController.swift */,
 			);
 			path = MistletoeTests;
 			sourceTree = "<group>";
@@ -593,7 +596,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				314564662008D27800D11E42 /* MistletoeTests.swift in Sources */,
+				31FE1D7C20108780008D6351 /* InstagramUserSearchViewController.swift in Sources */,
+				314564662008D27800D11E42 /* AccountsViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
